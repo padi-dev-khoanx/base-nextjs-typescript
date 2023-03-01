@@ -1,6 +1,4 @@
-import axios, {
-  AxiosResponse
-} from "axios";
+import axios, { AxiosResponse } from "axios";
 import qs from "qs";
 import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
@@ -11,7 +9,7 @@ const apiClient = axios.create({
     "content-type": "application/json",
   },
   paramsSerializer: {
-    serialize: (params) => qs.stringify(params),
+    encode: (params) => qs.stringify(params),
   },
 });
 
