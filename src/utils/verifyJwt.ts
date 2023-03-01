@@ -1,5 +1,5 @@
-import jwt_decode, { JwtPayload } from 'jwt-decode';
-import { removeCookie } from './removeCookie';
+import jwt_decode, { JwtPayload } from "jwt-decode";
+import { removeCookie } from "./removeCookie";
 
 export const verifyJwt = (jwt?: string): boolean => {
   if (jwt) {

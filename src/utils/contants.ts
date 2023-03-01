@@ -1,22 +1,28 @@
-export const PACK_STATUS: any = {
-  prepare: "準備中",
-  waiting_sale: "販売開始待ち",
-  on_sale: "販売中",
-  out_stock: "販売終了",
-};
-export const RARITY: any = {
-  SR: "スーパーレア",
-  R: "レア",
-  U: "アンコモン",
-  C: "コモン",
-  P: "プロモ",
-  none: "なし",
-};
-
-export const USER_ROLE: any = {
-  owner: "オーナー",
-  member: "メンバー",
-  wait_confirm: "グループ参加確認待ち",
+export const routerConstant = {
+  seller: {
+    artist: "/seller/aritst",
+    artist_create: "/seller/artist/create",
+    artist_edit: "/seller/artist/edit",
+    artist_id: {
+      index: (artist_id: string) => `seller/${artist_id}/dashboard`,
+    },
+  },
+  error404: "/404",
+  error500: "/500",
+  home: "/",
+  login: "/login",
 };
 
-export const APP_URL = '';
+export const routerPrivate: Array<string> = [];
+
+export const isRouterSeller = (pathName: string): boolean => {
+  return pathName.startsWith("/seller");
+};
+
+export const isRouterPrivate = (pathName: string): boolean => {
+  return (
+    routerPrivate.includes(pathName) ||
+    pathName.startsWith("/@/") ||
+    pathName.startsWith("/purchase")
+  );
+};

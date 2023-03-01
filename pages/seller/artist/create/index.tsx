@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import { LayoutSeller } from 'src/components/layouts/LayoutSeller';
 import { useSetRecoilState } from 'recoil';
-import { currentMenuItemState } from '../../../../src/recoil/sellerSidebarRecoilState';
+import { currentMenuItemState } from '../../../../src/recoil/seller-sidebar.recoil';
 import { SellerCreateGroupView } from '@/src/view/artist/SellerCreateGroupView';
 
 const SellerCreateGroup: NextPage = () => {

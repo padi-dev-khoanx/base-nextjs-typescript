@@ -1,7 +1,7 @@
-import { removeCookie } from './removeCookie';
-import Router from 'next/router';
-import { routerConstant } from './routerConstant';
-import { toast } from 'react-toastify';
+import { removeCookie } from "./removeCookie";
+import Router from "next/router";
+import { toast } from "react-toastify";
+import { routerConstant } from "./contants";
 
 const handleRedirect = (code: number) => {
   switch (code) {
@@ -10,9 +10,9 @@ const handleRedirect = (code: number) => {
       return Router.push(routerConstant.login).then();
     case 403:
     case 404:
-      return Router.push(routerConstant.page404).then();
+      return Router.push(routerConstant.error404).then();
     case 500:
-      return Router.push(routerConstant.page500).then();
+      return Router.push(routerConstant.error500).then();
     default:
       return;
   }
@@ -24,9 +24,13 @@ export const handleResultApi = (response: any) => {
   }
   handleRedirect(response.code);
   if (!response.status) {
-    return response.message !== '' ? toast.error(response.message) : toast.error('Server Error');
+    return response.message !== ""
+      ? toast.error(response.message)
+      : toast.error("Server Error");
   }
-  if (response.message !== '') {
-    return response.status ? toast.success(response.message) : toast.error(response.message);
+  if (response.message !== "") {
+    return response.status
+      ? toast.success(response.message)
+      : toast.error(response.message);
   }
 };

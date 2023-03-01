@@ -4,11 +4,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import apiClient from "../api/apiClient";
 import ButtonCommon from "../components/common/ButtonCommon";
 import InputCommon from "../components/common/InputCommon";
-import useTrans from "../hooks/useTrans";
 import { useEffect } from "react";
 
 const Dashboard = ({ data }: any) => {
-  const trans = useTrans();
   const {
     register,
     handleSubmit,
@@ -24,7 +22,7 @@ const Dashboard = ({ data }: any) => {
   return (
     <div className="flex items-center flex-wrap space-x-4">
       <form onSubmit={handleSubmit(submitForm)}>
-        <span className="text-red-400">{trans.home.title}</span>
+        <span className="text-red-400">ádasd</span>
         <ButtonCommon isDisable={true}>Disable</ButtonCommon>
         <ButtonCommon isLoading={true}>Loading</ButtonCommon>
         <ButtonCommon type="submit" onClick={() => console.log("hello")}>
