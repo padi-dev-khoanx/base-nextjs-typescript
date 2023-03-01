@@ -191,11 +191,10 @@ export const SellerUpdateGroupView = () => {
                   <SellerInput
                     type="text"
                     placeholder="グループ名"
-                    register={register}
-                    name="name"
-                    option={{
+                    {...register("name", {
                       required: "Please fill out this field",
-                    }}
+                    })}
+                    name="name"
                     errors={errors}
                   />
                 </div>

@@ -98,11 +98,10 @@ export const SellerCreateGroupView = () => {
                   <SellerInput
                     type="text"
                     placeholder="グループ名"
-                    register={register}
-                    name="name"
-                    option={{
+                    {...register("name", {
                       required: "Please fill out this field",
-                    }}
+                    })}
+                    name="name"
                     errors={errors}
                   />
                 </div>
@@ -170,14 +169,13 @@ export const SellerCreateGroupView = () => {
                   </label>
                   <div>
                     <SellerUrlInput
-                      type={"text"}
+                      type="text"
                       url={APP_URL}
-                      placeholder={"URL"}
-                      register={register}
-                      name={"url"}
-                      option={{
+                      placeholder="URL"
+                      {...register("url", {
                         required: "Please fill out this field",
-                      }}
+                      })}
+                      name="url"
                       errors={errors}
                     />
                     <div className="text-black/[0.45] text-sm leading-[22px] pt-[9px]">
