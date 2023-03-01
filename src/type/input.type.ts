@@ -5,10 +5,8 @@ export interface PropsInput
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  register: UseFormRegister<any>;
-  name: string;
-  option: RegisterOptions;
   errors?: FieldErrors<any>;
-  unit?: string
-  url?: string
+  unit?: string;
+  url?: string;
+  name: string
 }

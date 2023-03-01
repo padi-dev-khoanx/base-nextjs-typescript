@@ -116,11 +116,13 @@ export const SellerCreatePackView = () => {
                   <SellerInput
                     type="text"
                     placeholder="パック名"
-                    register={register}
+                    {...register("name", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     name="name"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
                     errors={errors}
                   />
                 </div>
@@ -170,15 +172,17 @@ export const SellerCreatePackView = () => {
                   </label>
                   <SellerNumberInput
                     type="number"
-                    placeholder={"0"}
-                    unit={"円"}
+                    placeholder="0"
+                    unit="円"
                     min={0}
-                    step={"any"}
-                    register={register}
+                    step="any"
+                    {...register("price_jpy", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     name="price_jpy"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
                     errors={errors}
                   />
                 </div>
@@ -193,11 +197,13 @@ export const SellerCreatePackView = () => {
                     unit={"ETH"}
                     min={0}
                     step={"any"}
-                    register={register}
+                    {...register("price_eth", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     name="price_eth"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
                     errors={errors}
                   />
                 </div>
@@ -208,15 +214,17 @@ export const SellerCreatePackView = () => {
                   </label>
                   <SellerNumberInput
                     type="number"
-                    placeholder={"1"}
-                    unit={"個"}
+                    placeholder="1"
+                    unit="個"
                     min={1}
-                    step={"number"}
-                    register={register}
+                    step="number"
+                    {...register("amount", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     name="amount"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
                     errors={errors}
                   />
                 </div>
@@ -229,15 +237,16 @@ export const SellerCreatePackView = () => {
                   </label>
                   <SellerNumberInput
                     type="number"
-                    placeholder={"1"}
-                    unit={"個"}
+                    placeholder="1"
+                    unit="個"
                     min={1}
-                    step={"number"}
-                    register={register}
-                    name="max_can_buy"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
+                    step="number"
+                    {...register("max_can_buy", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     errors={errors}
                   />
                 </div>
@@ -323,15 +332,17 @@ export const SellerCreatePackView = () => {
                   </label>
                   <SellerNumberInput
                     type="number"
-                    placeholder={"1"}
-                    unit={"枚"}
+                    placeholder="1"
+                    unit="枚"
                     min={1}
-                    step={"number"}
-                    register={register}
+                    step="number"
+                    {...register("number_card", {
+                      required: {
+                        value: true,
+                        message: "Please fill out this field",
+                      },
+                    })}
                     name="number_card"
-                    option={{
-                      required: "Please fill out this field",
-                    }}
                     errors={errors}
                   />
                 </div>

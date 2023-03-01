@@ -1,14 +1,7 @@
 import { PropsInput } from "@/src/type/input.type";
 import { ErrorMessage } from "@hookform/error-message";
 
-export const SellerUrlInput = ({
-  register,
-  name,
-  option,
-  errors,
-  url,
-  ...rest
-}: PropsInput) => {
+export const SellerUrlInput = ({ name, errors, url, ...rest }: PropsInput) => {
   return (
     <>
       <div className="flex">
@@ -18,7 +11,6 @@ export const SellerUrlInput = ({
         <input
           {...rest}
           className="rounded-sm rounded-l-[0px] bg-white border text-gray-900 block flex-1 w-full text-sm border-[#D9D9D9] py-[4px] px-[12px] focus:outline-none focus:bg-white"
-          {...register(name, option)}
         />
       </div>
       <ErrorMessage
