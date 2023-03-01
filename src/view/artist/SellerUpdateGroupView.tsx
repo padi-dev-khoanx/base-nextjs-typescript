@@ -7,15 +7,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   ParamsUpdateGroup,
   ParamsUpdateStatusGroup,
-} from "@/src/type/group.type";
+} from "@/src/type/artist.type";
 import axios from "axios";
-import { routerConstant } from "@/src/utils/routerConstant";
 import { useLoading } from "@/src/hooks/useLoading";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { SellerInput } from "@/src/components/common/SellerInput";
 import { UploadImage } from "@/src/components/upload/UploadImage";
 import { ErrorMessage } from "@hookform/error-message";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
+import { routerConstant } from "@/src/utils/contants";
 
 export const SellerUpdateGroupView = () => {
   const router = useRouter();

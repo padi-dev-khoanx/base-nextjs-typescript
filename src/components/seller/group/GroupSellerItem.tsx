@@ -1,4 +1,4 @@
-import { Group } from "@/src/type/group.type";
+import { Group } from "@/src/type/artist.type";
 import Image from "next/image";
 import Link from "next/link";
 
