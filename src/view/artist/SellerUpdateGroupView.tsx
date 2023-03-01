@@ -1,28 +1,18 @@
-import { Switch, UploadProps } from "antd";
-import { useEffect, useState } from "react";
-import { UploadFile } from "antd/lib/upload";
-import { SubmitHandler, useForm } from "react-hook-form";
-import Router, { useRouter } from "next/router";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  ParamsUpdateGroup,
-  ParamsUpdateStatusGroup,
-} from "@/src/type/group.type";
-import axios from "axios";
-import { routerConstant } from "@/src/utils/routerConstant";
-import { useLoading } from "@/src/hooks/useLoading";
-import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { SellerInput } from "@/src/components/common/SellerInput";
-import { UploadImage } from "@/src/components/upload/UploadImage";
-import { ErrorMessage } from "@hookform/error-message";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
+import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
+import { UploadImage } from "@/src/components/upload/UploadImage";
+import {
+  ParamsUpdateGroup
+} from "@/src/type/artist.type";
+import { ErrorMessage } from "@hookform/error-message";
+import { UploadProps } from "antd";
+import { UploadFile } from "antd/lib/upload";
+import { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 export const SellerUpdateGroupView = () => {
-  const router = useRouter();
-  const queryClient = useQueryClient();
-
   const groupData: any = {};
-
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
 
@@ -75,94 +65,11 @@ export const SellerUpdateGroupView = () => {
     });
   }, [register]);
 
-  useEffect(() => {
-    if (groupData) {
-      setValue("group_id", groupData.id);
-      setValue("name", groupData.name);
-      setValue("logo", groupData.logo);
-      setValue("main_images", groupData.main_images);
-      setValue("description", groupData.description);
-      const mainImages = groupData.main_images.map(
-        (image: string, key: number) => {
-          return {
-            uid: key,
-            name: "",
-            status: "done",
-            url: image,
-          };
-        }
-      );
-      setFileList(mainImages);
-      setFileLogo([
-        {
-          uid: "1",
-          name: "",
-          status: "done",
-          url: groupData.logo,
-        },
-      ]);
-    }
-  }, [groupData]);
+  const onSubmit: SubmitHandler<ParamsUpdateGroup> = (params) => {};
 
-  const mutationUpdateGroup = useMutation((params: ParamsUpdateGroup) => {
-    return axios.post("", params);
-  });
+  const handleChangeStatusGroup = () => {};
 
-  const mutationUpdateStatusGroup = useMutation(
-    (params: ParamsUpdateStatusGroup) => {
-      return axios.post("", params);
-    }
-  );
-
-  const onSubmit: SubmitHandler<ParamsUpdateGroup> = (params) => {
-    mutationUpdateGroup.mutate(params, {
-      onSuccess: () => {
-        queryClient.fetchQuery(["seller-list-group"]);
-        Router.push(routerConstant.seller.artist).then();
-      },
-    });
-  };
-
-  const handleChangeStatusGroup = () => {
-    mutationUpdateStatusGroup.mutate(
-      {
-        status:
-          groupData.status === "active" || groupData.status === "locked"
-            ? "inactive"
-            : "active",
-        group_id: groupData.id,
-      },
-      {
-        onSuccess: () => {
-          queryClient.fetchQuery(["seller-list-group"]);
-          Router.push(routerConstant.seller.artist).then();
-        },
-      }
-    );
-  };
-
-  const mutationUnPublicGroup = useMutation((params: { group_id: number }) => {
-    return axios.post("", params);
-  });
-
-  const mutationPublicGroup = useMutation((params: { group_id: number }) => {
-    return axios.post("", params);
-  });
-
-  const handleChangePublicGroup = (value: boolean) => {
-    if (value) {
-      mutationPublicGroup.mutate({ group_id: groupData.id });
-    } else {
-      mutationUnPublicGroup.mutate({ group_id: groupData.id });
-    }
-  };
-
-  useLoading(
-    mutationUpdateGroup.isLoading ||
-      mutationUpdateStatusGroup.isLoading ||
-      mutationUnPublicGroup.isLoading ||
-      mutationPublicGroup.isLoading
-  );
+  const handleChangePublicGroup = (value: boolean) => {};
 
   return (
     <>

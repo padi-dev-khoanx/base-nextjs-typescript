@@ -1,4 +1,4 @@
-import { PropsInput } from "@/src/type/input.type";
+import { PropsInput, PropsInputNumber } from "@/src/type/input.type";
 import { ErrorMessage } from "@hookform/error-message";
 
 export const SellerNumberInput = ({
@@ -6,7 +6,7 @@ export const SellerNumberInput = ({
   unit,
   errors,
   ...rest
-}: PropsInput) => {
+}: PropsInputNumber) => {
   return (
     <>
       <div className="flex">

@@ -6,7 +6,13 @@ export interface PropsInput
     HTMLInputElement
   > {
   errors?: FieldErrors<any>;
-  unit?: string;
-  url?: string;
-  name: string
+  name: string;
+}
+
+export interface PropsInputUrl extends PropsInput {
+  url: string;
+}
+
+export interface PropsInputNumber extends PropsInput {
+  unit: string;
 }

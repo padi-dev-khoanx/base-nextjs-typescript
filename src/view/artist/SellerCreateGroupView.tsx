@@ -1,27 +1,19 @@
-import { UploadProps } from "antd";
-import { useEffect, useState } from "react";
-import { UploadFile } from "antd/lib/upload";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
-import { ParamsCreateGroup } from "@/src/type/group.type";
-import axios from "axios";
-import { useLoading } from "@/src/hooks/useLoading";
-import { SubmitHandler } from "react-hook-form/dist/types";
-import Router from "next/router";
-import { routerConstant } from "@/src/utils/routerConstant";
-import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { SellerInput } from "@/src/components/common/SellerInput";
-import { UploadImage } from "@/src/components/upload/UploadImage";
-import { ErrorMessage } from "@hookform/error-message";
-import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
-import { APP_URL } from "@/src/utils/contants";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
+import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
+import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
+import { UploadImage } from "@/src/components/upload/UploadImage";
+import { ParamsCreateGroup } from "@/src/type/artist.type";
+import { ErrorMessage } from "@hookform/error-message";
+import { UploadProps } from "antd";
+import { UploadFile } from "antd/lib/upload";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
 
 export const SellerCreateGroupView = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
-  const queryClient = useQueryClient();
-
   const handleChangeImage: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {
@@ -67,19 +59,8 @@ export const SellerCreateGroupView = () => {
       required: "Please fill out this field",
     });
   }, [register]);
-
-  const mutationCreateGroup = useMutation((params: ParamsCreateGroup) => {
-    return axios.post("", params);
-  });
-  useLoading(mutationCreateGroup.isLoading);
-
   const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {
-    mutationCreateGroup.mutate(params, {
-      onSuccess: () => {
-        queryClient.fetchQuery(["seller-list-group"]);
-        Router.push(routerConstant.seller.artist).then();
-      },
-    });
+    
   };
 
   return (
@@ -170,7 +151,7 @@ export const SellerCreateGroupView = () => {
                   <div>
                     <SellerUrlInput
                       type="text"
-                      url={APP_URL}
+                      url=""
                       placeholder="URL"
                       {...register("url", {
                         required: "Please fill out this field",

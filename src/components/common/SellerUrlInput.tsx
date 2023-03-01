@@ -1,7 +1,7 @@
-import { PropsInput } from "@/src/type/input.type";
+import { PropsInput, PropsInputUrl } from "@/src/type/input.type";
 import { ErrorMessage } from "@hookform/error-message";
 
-export const SellerUrlInput = ({ name, errors, url, ...rest }: PropsInput) => {
+export const SellerUrlInput = ({ name, errors, url, ...rest }: PropsInputUrl) => {
   return (
     <>
       <div className="flex">

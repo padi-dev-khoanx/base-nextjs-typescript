@@ -1,8 +1,8 @@
 import { SellerHeader } from "@/src/components/seller/common/SellerHeader";
 import { GroupSellerItem } from "@/src/components/seller/group/GroupSellerItem";
 import { useLoading } from "@/src/hooks/useLoading";
-import { Group } from "@/src/type/group.type";
-import { routerConstant } from "@/src/utils/routerConstant";
+import { Group } from "@/src/type/artist.type";
+import { routerConstant } from "@/src/utils/constant/routerConstant";
 import Router from "next/router";
 
 export const SellerListGroupView = () => {
