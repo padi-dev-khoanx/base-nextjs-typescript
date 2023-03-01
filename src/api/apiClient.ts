@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
 const baseURLApp = process.env.NEXT_PUBLIC_API;
 const apiClient = axios.create({
-  baseURL: baseURLApp,
+  baseURL: "http://localhost:3002/shopping",
   headers: {
     "content-type": "application/json",
   },

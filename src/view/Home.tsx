@@ -1,13 +1,13 @@
-import React from "react";
+import axios from "axios";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { useRecoilValue } from "recoil";
+import apiClient from "../api/apiClient";
 import ButtonCommon from "../components/common/ButtonCommon";
 import InputCommon from "../components/common/InputCommon";
 import useTrans from "../hooks/useTrans";
-import { loadingState } from "../recoil/loading.recoil";
+import { useEffect } from "react";
 
-const Dashboard = () => {
+const Dashboard = ({ data }: any) => {
   const trans = useTrans();
   const {
     register,
@@ -41,6 +41,18 @@ const Dashboard = () => {
       </form>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  console.log("hello");
+  const result = await apiClient.post("/product/search?page=1&size=10", {});
+  const { data } = result;
+  console.log("data:::", data);
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Dashboard;

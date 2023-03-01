@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { LayoutSeller } from 'src/components/layouts/LayoutSeller';
 import { useSetRecoilState } from 'recoil';
 import { currentMenuItemState } from '../../../../src/recoil/sellerSidebarRecoilState';
-import { SellerCreateGroupView } from '@/src/view/group/SellerCreateGroupView';
+import { SellerCreateGroupView } from '@/src/view/artist/SellerCreateGroupView';
 
 const SellerCreateGroup: NextPage = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
