@@ -1,4 +1,4 @@
-import { FieldErrors, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { FieldErrors } from "react-hook-form";
 
 export interface PropsInput
   extends React.DetailedHTMLProps<
