@@ -9,18 +9,18 @@ export const SellerListGroupView = () => {
   const data: any = {};
   const isLoading = false;
   useLoading(isLoading);
-  const listGroup = data?.data.items;
+  const listGroup = data?.data?.items;
 
   return (
     <>
       <SellerHeader
         title="グループ"
         buttonRightBlueText="追加"
-        buttonRightBlue={() => Router.push(routerConstant.seller.groupCreate)}
+        buttonRightBlue={() => Router.push(routerConstant.seller.artist_create)}
       />
       <div>
         <div className="mr-[38px] ml-1">
-          {listGroup.map((group: Group) => (
+          {listGroup?.map((group: Group) => (
             <GroupSellerItem key={group.id} data={group} />
           ))}
         </div>

@@ -7,24 +7,24 @@ export const middleware = (request: NextRequest) => {
   const role = request.cookies.get("role");
   const pathName = request.nextUrl.pathname;
   const search = request.nextUrl.search;
-  if (isRouterPrivate(pathName) && !verifyJwt(jwt as string | undefined)) {
-    return NextResponse.redirect(
-      new URL(
-        routerConstant.login +
-          `?pre_path=${encodeURIComponent(pathName + search)}`,
-        request.url
-      )
-    );
-  }
-  if (isRouterPrivate(pathName) && !verifyJwt(jwt as string | undefined)) {
-    return NextResponse.redirect(
-      new URL(
-        routerConstant.login +
-          `?pre_path=${encodeURIComponent(pathName + search)}`,
-        request.url
-      )
-    );
-  }
+  // if (isRouterPrivate(pathName) && !verifyJwt(jwt as string | undefined)) {
+  //   return NextResponse.redirect(
+  //     new URL(
+  //       routerConstant.login +
+  //         `?pre_path=${encodeURIComponent(pathName + search)}`,
+  //       request.url
+  //     )
+  //   );
+  // }
+  // if (isRouterPrivate(pathName) && !verifyJwt(jwt as string | undefined)) {
+  //   return NextResponse.redirect(
+  //     new URL(
+  //       routerConstant.login +
+  //         `?pre_path=${encodeURIComponent(pathName + search)}`,
+  //       request.url
+  //     )
+  //   );
+  // }
 };
 
 export const config = {

@@ -77,7 +77,7 @@ export const SellerCreateGroupView = () => {
     mutationCreateGroup.mutate(params, {
       onSuccess: () => {
         queryClient.fetchQuery(["seller-list-group"]);
-        Router.push(routerConstant.seller.group).then();
+        Router.push(routerConstant.seller.artist).then();
       },
     });
   };
