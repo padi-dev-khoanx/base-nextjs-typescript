@@ -1,26 +1,19 @@
-import { UploadProps } from "antd";
-import { useEffect, useState } from "react";
-import { UploadFile } from "antd/lib/upload";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
-import { ParamsCreateGroup } from "@/src/type/artist.type";
-import axios from "axios";
-import { useLoading } from "@/src/hooks/useLoading";
-import { SubmitHandler } from "react-hook-form/dist/types";
-import Router from "next/router";
-import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { SellerInput } from "@/src/components/common/SellerInput";
-import { UploadImage } from "@/src/components/upload/UploadImage";
-import { ErrorMessage } from "@hookform/error-message";
-import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
-import { routerConstant } from "@/src/utils/constant/routerConstant";
+import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
+import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
+import { UploadImage } from "@/src/components/upload/UploadImage";
+import { ParamsCreateGroup } from "@/src/type/artist.type";
+import { ErrorMessage } from "@hookform/error-message";
+import { UploadProps } from "antd";
+import { UploadFile } from "antd/lib/upload";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
 
 export const SellerCreateGroupView = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
-  const queryClient = useQueryClient();
-
   const handleChangeImage: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {

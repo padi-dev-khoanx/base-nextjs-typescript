@@ -6,19 +6,13 @@ import {
   ParamsUpdateGroup
 } from "@/src/type/artist.type";
 import { ErrorMessage } from "@hookform/error-message";
-import { useQueryClient } from "@tanstack/react-query";
 import { UploadProps } from "antd";
 import { UploadFile } from "antd/lib/upload";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export const SellerUpdateGroupView = () => {
-  const router = useRouter();
-  const queryClient = useQueryClient();
-
   const groupData: any = {};
-
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
 
