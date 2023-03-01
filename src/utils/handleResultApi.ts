@@ -1,7 +1,7 @@
 import { removeCookie } from "./removeCookie";
 import Router from "next/router";
 import { toast } from "react-toastify";
-import { routerConstant } from "./contants";
+import { routerConstant } from "./constant/routerConstant";
 
 const handleRedirect = (code: number) => {
   switch (code) {

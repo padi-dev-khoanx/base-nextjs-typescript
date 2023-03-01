@@ -14,7 +14,7 @@ import { UploadImage } from "@/src/components/upload/UploadImage";
 import { ErrorMessage } from "@hookform/error-message";
 import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
-import { routerConstant } from "@/src/utils/contants";
+import { routerConstant } from "@/src/utils/constant/routerConstant";
 
 export const SellerCreateGroupView = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -66,19 +66,8 @@ export const SellerCreateGroupView = () => {
       required: "Please fill out this field",
     });
   }, [register]);
-
-  const mutationCreateGroup = useMutation((params: ParamsCreateGroup) => {
-    return axios.post("", params);
-  });
-  useLoading(mutationCreateGroup.isLoading);
-
   const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {
-    mutationCreateGroup.mutate(params, {
-      onSuccess: () => {
-        queryClient.fetchQuery(["seller-list-group"]);
-        Router.push(routerConstant.seller.artist).then();
-      },
-    });
+    
   };
 
   return (
