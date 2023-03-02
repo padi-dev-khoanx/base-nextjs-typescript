@@ -1,8 +1,9 @@
-import { Group } from "@/src/type/artist.type";
+import { Artist } from "@/src/type/artist.type";
+import { routerConstant } from "@/src/utils/constant/routerConstant";
 import Image from "next/image";
 import Link from "next/link";
 
-export const GroupSellerItem = ({ data }: { data: Group }) => {
+export const ArtistSellerItem = ({ data }: { data: Artist }) => {
   return (
     <div className="flex justify-between items-center px-[24px] py-[27.5px] border-b border-b-[#D9D9D9]">
       <div className="flex items-center">
@@ -17,11 +18,12 @@ export const GroupSellerItem = ({ data }: { data: Group }) => {
         </span>
         <span className="text-base w-80 truncate">{data.name}</span>
       </div>
-      {/* <ValidateRoleOwner groupIdProp={data.id}>
-        <Link href={`${routerConstant.seller.artist_edit}?group_id=${data.id}`}>
-          <a className='text-sm text-[#1890FF] hover:text-black/[0.85] grow-0 shrink-0'>変更</a>
-        </Link>
-      </ValidateRoleOwner> */}
+      <Link
+        href={`${routerConstant.seller.artist_edit}?artist_id=${data.id}`}
+        className="text-sm text-[#1890FF] hover:text-black/[0.85] grow-0 shrink-0"
+      >
+        変更
+      </Link>
     </div>
   );
 };

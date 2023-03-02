@@ -1,4 +1,4 @@
-export interface Group {
+export interface Artist {
   bc_token_id: number;
   chain_id: number;
   createdAt: string;

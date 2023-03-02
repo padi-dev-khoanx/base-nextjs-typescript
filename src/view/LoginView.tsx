@@ -4,9 +4,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import ButtonCommon from "../components/common/ButtonCommon";
 import InputCommon from "../components/common/InputCommon";
 import { IFormLogin } from "../type/login.type";
+import { routerConstant } from "../utils/constant/routerConstant";
 
 const LoginView = () => {
-    const router = useRouter()
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -20,7 +21,7 @@ const LoginView = () => {
   });
   const handleLogin: SubmitHandler<IFormLogin> = (value) => {
     console.log("value:::", value);
-
+    router.push(routerConstant.seller.artist);
   };
   return (
     <div>
