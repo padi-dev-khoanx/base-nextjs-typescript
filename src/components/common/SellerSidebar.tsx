@@ -41,7 +41,7 @@ const SellerSidebar = () => {
           <span>Artist</span>
         </div>
         <div className="h-[0.5px] w-full bg-gray-300 mt-2" />
-        <div>
+        <div className="mt-2">
           <Collapse ghost expandIconPosition="end" defaultActiveKey={["1"]}>
             <Collapse.Panel
               header={<span className="text-sm leading-[22px]">Artist A</span>}
