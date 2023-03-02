@@ -7,6 +7,7 @@ export interface PropsInput
   > {
   errors?: FieldErrors<any>;
   name: string;
+  message?: string;
 }
 
 export interface PropsInputUrl extends PropsInput {

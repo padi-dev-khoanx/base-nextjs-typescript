@@ -1,6 +1,7 @@
 export const routerConstant = {
     seller: {
-      artist: "/seller/aritst",
+      index: '/seller',
+      artist: "/seller/artist",
       artist_create: "/seller/artist/create",
       artist_edit: "/seller/artist/edit",
       artist_id: {

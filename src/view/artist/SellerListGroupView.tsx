@@ -14,8 +14,8 @@ export const SellerListGroupView = () => {
   return (
     <>
       <SellerHeader
-        title="グループ"
-        buttonRightBlueText="追加"
+        title="Artist"
+        buttonRightBlueText="Thêm mới"
         buttonRightBlue={() => Router.push(routerConstant.seller.artist_create)}
       />
       <div>

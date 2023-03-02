@@ -5,7 +5,7 @@ import Header from "../common/Header";
 
 type Props = {
   children: ReactNode;
-  title?: string;
+  title: string;
 };
 const LayoutDocument: NextPage<Props> = ({ children, title }) => {
   return (
@@ -13,10 +13,7 @@ const LayoutDocument: NextPage<Props> = ({ children, title }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div>
-        <Header />
-        {children}
-      </div>
+      <div>{children}</div>
     </>
   );
 };

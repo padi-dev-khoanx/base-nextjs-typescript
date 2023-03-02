@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
+import SellerSidebar from "../common/SellerSidebar";
 
 type Props = {
   children: ReactNode;
@@ -16,8 +17,8 @@ export const LayoutSeller = ({
         <title>{title}</title>
       </Head>
       <div className="flex w-full min-h-screen bg-[#FFFFFF] layout-seller flex-wrap">
-        {/* <SidebarSeller /> */}
-        <div className="w-full ml-[280px]">{children}</div>
+        <SellerSidebar />
+        <div className="w-full ml-[290px]">{children}</div>
       </div>
     </>
   );
