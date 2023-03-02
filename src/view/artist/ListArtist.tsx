@@ -5,7 +5,7 @@ import { Group } from "@/src/type/artist.type";
 import { routerConstant } from "@/src/utils/constant/routerConstant";
 import Router from "next/router";
 
-export const SellerListGroupView = () => {
+export const ListArtist = () => {
   const data: any = {};
   const isLoading = false;
   useLoading(isLoading);

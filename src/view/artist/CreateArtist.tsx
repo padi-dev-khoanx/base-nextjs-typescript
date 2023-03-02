@@ -1,26 +1,24 @@
 import { SellerInput } from "@/src/components/common/SellerInput";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
+import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { UploadImage } from "@/src/components/upload/UploadImage";
-import {
-  ParamsUpdateGroup
-} from "@/src/type/artist.type";
+import { ParamsCreateGroup } from "@/src/type/artist.type";
 import { ErrorMessage } from "@hookform/error-message";
 import { UploadProps } from "antd";
 import { UploadFile } from "antd/lib/upload";
 import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form/dist/types";
 
-export const SellerUpdateGroupView = () => {
-  const groupData: any = {};
+export const CreateArtist = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
-
   const handleChangeImage: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {
     const listUrlImage = newFileList.map((item) => {
-      return item?.response?.data?.[0] ?? item?.url;
+      return item?.response?.data?.[0];
     });
     setValue("main_images", listUrlImage);
     if (listUrlImage.length) {
@@ -32,10 +30,7 @@ export const SellerUpdateGroupView = () => {
   const handleChangeImageLogo: UploadProps["onChange"] = ({
     fileList: newFileList,
   }) => {
-    setValue(
-      "logo",
-      newFileList?.[0]?.response?.data?.[0] ?? newFileList?.[0]?.url
-    );
+    setValue("logo", newFileList?.[0]?.response?.data?.[0]);
     if (newFileList?.[0]?.response?.data?.[0]) {
       clearErrors("logo");
     }
@@ -47,12 +42,12 @@ export const SellerUpdateGroupView = () => {
     handleSubmit,
     setValue,
     clearErrors,
-    getValues,
     formState: { errors },
-  } = useForm<ParamsUpdateGroup>({
+  } = useForm<ParamsCreateGroup>({
     mode: "onChange",
     defaultValues: {
-      name: groupData?.name,
+      logo: "",
+      main_images: [],
     },
   });
 
@@ -64,29 +59,15 @@ export const SellerUpdateGroupView = () => {
       required: "Please fill out this field",
     });
   }, [register]);
-
-  const onSubmit: SubmitHandler<ParamsUpdateGroup> = (params) => {};
-
-  const handleChangeStatusGroup = () => {};
-
-  const handleChangePublicGroup = (value: boolean) => {};
+  const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {
+    
+  };
 
   return (
     <>
       <div className="flex">
         <div className="w-full">
-          <SellerHeaderUpdateCreate
-            title={groupData?.name}
-            conditionButtonRight={
-              groupData?.status === "active" || groupData?.status === "locked"
-            }
-            showButtonRight={
-              groupData?.status === "active" ||
-              groupData?.status === "locked" ||
-              groupData?.status === "inactive"
-            }
-            actionButtonRight={() => handleChangeStatusGroup()}
-          />
+          <SellerHeaderUpdateCreate title="新しいグループ" />
           <div>
             <div className="p-[34px]">
               <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -168,14 +149,16 @@ export const SellerUpdateGroupView = () => {
                     <span className="text-sm leading-[22px]">URL</span>
                   </label>
                   <div>
-                    <div className="flex">
-                      <span className="inline-flex items-center py-[4px] px-[12px] text-sm leading-[22px] bg-[#FAFAFA] rounded-l-[2px] border border-[#D9D9D9] border-r-[0]">
-                        https://idolly.app/
-                      </span>
-                      <span className="rounded-sm rounded-l-[0px] bg-[#F5F5F5] border text-[#00000040] block flex-1 w-full text-sm border-[#D9D9D9] py-[4px] px-[12px] focus:outline-none focus:bg-white">
-                        {groupData?.url}
-                      </span>
-                    </div>
+                    <SellerUrlInput
+                      type="text"
+                      url=""
+                      placeholder="URL"
+                      {...register("url", {
+                        required: "Please fill out this field",
+                      })}
+                      name="url"
+                      errors={errors}
+                    />
                     <div className="text-black/[0.45] text-sm leading-[22px] pt-[9px]">
                       <p>半角英数字またはハイフン(-)3文字以上</p>
                       <p>URLは保存したら変更できませんのでご注意下さい</p>
@@ -195,22 +178,8 @@ export const SellerUpdateGroupView = () => {
                       required: "Please fill out this field",
                     }}
                     errors={errors}
-                    textLength={getValues("description")?.length}
                   />
                 </div>
-                {/* {isFetchedAfterMount &&
-                  ["active", "locked"].includes(groupData?.status) && (
-                    <div className="w-full md:w-1/2 px-3 mb-[40px]">
-                      <Switch
-                        defaultChecked={groupData?.status === "locked"}
-                        className="btn-switch"
-                        onChange={(value) => handleChangePublicGroup(value)}
-                        checkedChildren="公開"
-                        unCheckedChildren="非公開"
-                      />
-                    </div>
-                  )} */}
-
                 <div className="w-full md:w-1/2 px-3 mb-[40px]">
                   <button className="bg-blue-500 text-[#fff] text-sm leading-[22px] py-2 px-4 rounded">
                     保存

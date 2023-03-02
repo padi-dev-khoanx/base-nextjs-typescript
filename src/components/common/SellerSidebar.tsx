@@ -15,6 +15,7 @@ const SellerSidebar = () => {
   useEffect(() => {
     setIsActiveState(router.pathname);
   }, [router]);
+
   return (
     <div className="bg-grad-primary w-[280px] fixed left-0 h-full">
       <div className="pt-10 px-4">
@@ -47,28 +48,29 @@ const SellerSidebar = () => {
               header={<span className="text-sm leading-[22px]">Artist A</span>}
               key="1"
               className="custom-collapse"
-            >
-              {sidebarItem.map((item) => (
-                <div
-                  key={item.id}
-                  className={
-                    isActiveState === item.path("1")
-                      ? "side-active"
-                      : "hover:bg-blue-100"
-                  }
-                  onClick={() => {
-                    router.push(item.path("1"));
-                    setIsActiveState(item.path("1"));
-                  }}
-                >
-                  <div className="flex items-center space-x-[10px] py-[9px] pl-6 cursor-pointer">
-                    <item.icon />
-                    <span>{item.name}</span>
-                  </div>
-                </div>
-              ))}
-            </Collapse.Panel>
+            ></Collapse.Panel>
           </Collapse>
+        </div>
+        <div>
+          {sidebarItem.map((item) => (
+            <div
+              key={item.id}
+              className={
+                isActiveState === item.path("1")
+                  ? "side-active"
+                  : "hover:bg-blue-100"
+              }
+              onClick={() => {
+                router.push(item.path("1"));
+                setIsActiveState(item.path("1"));
+              }}
+            >
+              <div className="flex items-center space-x-[10px] py-[9px] pl-6 cursor-pointer">
+                <item.icon />
+                <span>{item.name}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

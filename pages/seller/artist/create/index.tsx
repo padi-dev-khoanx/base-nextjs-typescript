@@ -3,19 +3,19 @@ import { useEffect } from 'react';
 import { LayoutSeller } from 'src/components/layouts/LayoutSeller';
 import { useSetRecoilState } from 'recoil';
 import { currentMenuItemState } from '../../../../src/recoil/seller-sidebar.recoil';
-import { SellerCreateGroupView } from '@/src/view/artist/SellerCreateGroupView';
+import { CreateArtist } from '@/src/view/artist/CreateArtist';
 
-const SellerCreateGroup: NextPage = () => {
+const SellerCreateArtist: NextPage = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
     setCurrentMenuItem('group');
   }, []);
 
   return (
-    <LayoutSeller title='Create group'>
-      <SellerCreateGroupView />
+    <LayoutSeller title='Create Artist'>
+      <CreateArtist />
     </LayoutSeller>
   );
 };
 
-export default SellerCreateGroup;
+export default SellerCreateArtist;
