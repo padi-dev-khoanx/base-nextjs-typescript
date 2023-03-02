@@ -58,7 +58,7 @@ const SellerSidebar = () => {
                   }
                   onClick={() => {
                     router.push(item.path("1"));
-                    setIsActiveState(item.id);
+                    setIsActiveState(item.path("1"));
                   }}
                 >
                   <div className="flex items-center space-x-[10px] py-[9px] pl-6 cursor-pointer">
