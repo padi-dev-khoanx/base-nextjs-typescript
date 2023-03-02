@@ -1,9 +1,12 @@
-import React from 'react'
+import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
+import React from "react";
 
 const Invite = () => {
   return (
-    <div>Invite</div>
-  )
-}
+    <div>
+      <SellerHeaderUpdateCreate title="Invite member" />
+    </div>
+  );
+};
 
-export default Invite
+export default Invite;

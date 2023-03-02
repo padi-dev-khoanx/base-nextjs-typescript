@@ -2,14 +2,14 @@ import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ButtonCommon from "../components/common/ButtonCommon";
-import InputCommon from "../components/common/InputCommon";
+import InputSeller from "../components/common/seller/InputSeller";
 import { IFormLogin } from "../type/login.type";
 
 const LoginView = () => {
-    const router = useRouter()
+  const router = useRouter();
   const {
-    register,
     formState: { errors },
+    control,
     handleSubmit,
   } = useForm<IFormLogin>({
     defaultValues: {
@@ -20,7 +20,6 @@ const LoginView = () => {
   });
   const handleLogin: SubmitHandler<IFormLogin> = (value) => {
     console.log("value:::", value);
-
   };
   return (
     <div>
@@ -28,22 +27,24 @@ const LoginView = () => {
         onSubmit={handleSubmit(handleLogin)}
         className="flex flex-col space-y-4"
       >
-        <InputCommon
-          placeholder="Username"
-          {...register("username", {
-            required: { value: true, message: "This field is required" },
-          })}
+        <InputSeller
           name="username"
-          message={errors && errors.username && errors.username?.message}
-        />
-        <InputCommon
-          placeholder="Password"
-          type="password"
-          {...register("password", {
+          control={control}
+          rules={{
             required: { value: true, message: "This field is required" },
-          })}
+          }}
+          message={errors && errors.username && errors.username.message}
+          placeholder="Username"
+        />
+        <InputSeller
           name="password"
-          message={errors && errors.password && errors.password?.message}
+          control={control}
+          rules={{
+            required: { value: true, message: "This field is required" },
+          }}
+          message={errors && errors.password && errors.password.message}
+          type="password"
+          placeholder="Password"
         />
         <ButtonCommon type="submit">Login</ButtonCommon>
       </form>
