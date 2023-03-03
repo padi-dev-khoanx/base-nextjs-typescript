@@ -3,7 +3,7 @@ import Image from "rc-image";
 
 const Header = () => {
   return (
-    <div className="flex py-4 shadow-3xl px-8 items-center">
+    <div className="flex py-4 shadow-header px-8 items-center">
         <div className="w-1/4 px-2">
           <Image
             src="/img/logo_demo.svg"
