@@ -2,9 +2,7 @@ import { SellerInput } from "@/src/components/common/SellerInput";
 import { SellerTextArea } from "@/src/components/common/SellerTextArea";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { UploadImage } from "@/src/components/upload/UploadImage";
-import {
-  ParamsUpdateGroup
-} from "@/src/type/artist.type";
+import { ParamsUpdateGroup } from "@/src/type/artist.type";
 import { ErrorMessage } from "@hookform/error-message";
 import { UploadProps } from "antd";
 import { UploadFile } from "antd/lib/upload";

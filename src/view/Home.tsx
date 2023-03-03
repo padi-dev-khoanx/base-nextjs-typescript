@@ -1,24 +1,26 @@
-import axios from "axios";
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { SubmitHandler, useForm } from "react-hook-form";
 import apiClient from "../api/apiClient";
 import ButtonCommon from "../components/common/ButtonCommon";
-import InputCommon from "../components/common/InputCommon";
-import { useEffect } from "react";
+import InputUrlSeller from "../components/common/seller/InputUrlSeller";
+import TextAreaSeller from "../components/common/seller/TextAreaSeller";
 
 const Dashboard = ({ data }: any) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm({
     defaultValues: {
       name: "",
     },
+    mode: "onChange",
   });
   const submitForm: SubmitHandler<{ name: string }> = (value) => {
     console.log("value:::", value);
   };
+  console.log("errors:::", errors);
   return (
     <div className="flex items-center flex-wrap space-x-4">
       <form onSubmit={handleSubmit(submitForm)}>
@@ -28,29 +30,21 @@ const Dashboard = ({ data }: any) => {
         <ButtonCommon type="submit" onClick={() => console.log("hello")}>
           Normal
         </ButtonCommon>
-        <InputCommon
-          placeholder="Custom input"
-          {...register("name", {
-            required: { value: true, message: "Trường này là bắt buộc" },
-          })}
+        <InputUrlSeller
+          control={control}
           name="name"
-          errors={errors}
+          placeholder="Input test"
+          rules={{
+            required: { value: true, message: "This field is required" },
+          }}
+          message={errors && errors.name && errors.name.message}
+          domain=""
+          label="Url"
+          isRequired={true}
         />
       </form>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  console.log("hello");
-  const result = await apiClient.post("/product/search?page=1&size=10", {});
-  const { data } = result;
-  console.log("data:::", data);
-  return {
-    props: {
-      data,
-    },
-  };
 };
 
 export default Dashboard;

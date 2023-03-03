@@ -1,3 +1,4 @@
+import { IFormPropsHeader } from "@/src/type/seller/header.type";
 import { ArrowLeftOutlined, MoreOutlined } from "@ant-design/icons";
 import { Dropdown, MenuProps } from "antd";
 import Router from "next/router";
@@ -9,7 +10,7 @@ export const SellerHeaderUpdateCreate = ({
   conditionButtonRight,
   actionButtonRight,
   customBack,
-}: any) => {
+}: Partial<IFormPropsHeader>) => {
   const items: MenuProps["items"] = [
     {
       label: (
