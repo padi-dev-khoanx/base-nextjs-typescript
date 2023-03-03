@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import React, { ReactNode } from "react";
+import Footer from "../common/Footer";
 import Header from "../common/Header";
 
 type Props = {
@@ -13,7 +14,11 @@ const LayoutDocument: NextPage<Props> = ({ children, title }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <div>{children}</div>
+      <div>
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 };
