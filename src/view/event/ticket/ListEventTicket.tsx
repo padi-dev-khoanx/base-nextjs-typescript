@@ -23,13 +23,13 @@ export const ListEventTicket = () => {
       <div className="flex font-['Roboto']">
         <div className='w-full'>
           <SellerHeader
-            title='メンバー'
+            title='チケット'
             buttonRightBlue={() =>
               Router.push(
                 routerConstant.seller.manage_artist.event.ticket.create(artistId, eventId),
               )
             }
-            buttonRightBlueText='追加'
+            buttonRightBlueText='新規追加'
           />
           <div>
             {listTicket.map((ticket: any) => (

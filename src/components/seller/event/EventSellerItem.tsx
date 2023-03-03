@@ -12,13 +12,13 @@ export const EventSellerItem = ({ data, id }: { data: UserGroup; id: string }) =
         className='rounded-sm text-sm leading-[22px] px-4 py-2 bg-blue-500 text-blue-100 hover:bg-blue-600 duration-300'
         href={`${routerConstant.seller.manage_artist.event.edit(id, String(data.id))}`}
       >
-        Edit
+        イベント情報を変更
       </Link>
       <Link
         className='rounded-sm text-sm leading-[22px] px-4 py-2 bg-blue-500 text-blue-100 hover:bg-blue-600 duration-300'
         href={`${routerConstant.seller.manage_artist.event.ticket.index(id, String(data.id))}`}
       >
-        Ticket
+        チケット情報を変更
       </Link>
     </div>
   );

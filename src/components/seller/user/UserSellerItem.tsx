@@ -10,7 +10,12 @@ export const UserSellerItem = ({ data, id }: { data: UserGroup; id: string }) =>
       <div className='flex-1'>
         <strong className='text-base'>{data.name}</strong>
       </div>
-      <Link href={routerConstant.seller.manage_artist.user.edit(id, String(data.id))}>変更</Link>
+      <Link
+        className='rounded-sm text-sm leading-[22px] px-4 py-2 text-blue-500 text-blue-100 hover:bg-blue-600 duration-300'
+        href={routerConstant.seller.manage_artist.user.edit(id, String(data.id))}
+      >
+        変更
+      </Link>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const ListUser = () => {
         buttonRightBlue={() =>
           Router.push(routerConstant.seller.manage_artist.user.invite(artistId))
         }
-        buttonRightBlueText='Invite'
+        buttonRightBlueText='招待'
       />
       {listUser.map((user: UserGroup) => (
         <UserSellerItem key={user.id} id={artistId} data={user} />

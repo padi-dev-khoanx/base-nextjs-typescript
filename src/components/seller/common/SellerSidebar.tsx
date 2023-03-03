@@ -38,7 +38,7 @@ const SellerSidebar = () => {
         </div>
         <div className='flex items-center py-[9px] px-6 side-active'>
           <SettingOutlined className='mr-[10px]' />
-          <span>Artist</span>
+          <span>アーティスト</span>
         </div>
         <div className='h-[0.5px] w-full bg-gray-300 mt-2' />
         <div className='mt-2'>

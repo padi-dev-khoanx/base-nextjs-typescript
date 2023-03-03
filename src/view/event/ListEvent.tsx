@@ -21,11 +21,11 @@ export const ListEvent = () => {
       <div className="flex font-['Roboto']">
         <div className='w-full'>
           <SellerHeader
-            title='メンバー'
+            title='イベント'
             buttonRightBlue={() =>
               Router.push(routerConstant.seller.manage_artist.event.create(artistId))
             }
-            buttonRightBlueText='追加'
+            buttonRightBlueText='新規追加'
           />
           <div>
             {listEvent.map((user: any) => (

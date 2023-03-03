@@ -24,7 +24,7 @@ export const ListArtist = () => {
     <>
       <SellerHeader
         title='Artist'
-        buttonRightBlueText='Thêm mới'
+        buttonRightBlueText='招待'
         buttonRightBlue={() => Router.push(routerConstant.seller.artist_create)}
       />
       <div>

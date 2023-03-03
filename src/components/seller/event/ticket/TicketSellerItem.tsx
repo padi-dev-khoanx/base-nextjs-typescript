@@ -24,7 +24,7 @@ export const TicketSellerItem = ({
           String(data.id),
         )}`}
       >
-        Edit
+        変更
       </Link>
     </div>
   );
