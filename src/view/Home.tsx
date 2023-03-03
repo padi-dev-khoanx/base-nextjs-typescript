@@ -2,8 +2,8 @@ import { GetStaticProps } from "next";
 import { SubmitHandler, useForm } from "react-hook-form";
 import apiClient from "../api/apiClient";
 import ButtonCommon from "../components/common/ButtonCommon";
-import InputUrlSeller from "../components/common/seller/InputUrlSeller";
-import TextAreaSeller from "../components/common/seller/TextAreaSeller";
+import InputUrlSeller from "../components/seller/input/InputUrlSeller";
+import TextAreaSeller from "../components/seller/input/TextAreaSeller";
 
 const Dashboard = ({ data }: any) => {
   const {

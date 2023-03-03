@@ -1,5 +1,5 @@
 import { RoleEnum } from "../enum/roleEnum";
 
-export const isSeller = (role?: RoleEnum): boolean => {
+export const isSeller = (role?: string): boolean => {
   return role === RoleEnum.SELLER;
 };

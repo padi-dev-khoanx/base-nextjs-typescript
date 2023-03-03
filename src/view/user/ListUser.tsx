@@ -1,5 +1,5 @@
 import { SellerHeader } from "@/src/components/seller/common/SellerHeader";
-import { routerConstant } from "@/src/utils/constant/routerConstant";
+import { routerConstant } from "@/src/constant/routerConstant";
 import { useRouter } from "next/router";
 import React from "react";
 
