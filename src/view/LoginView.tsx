@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ButtonCommon from "../components/common/ButtonCommon";
-import InputSeller from "../components/common/seller/InputSeller";
+import InputSeller from "../components/seller/input/InputSeller";
 import { IFormLogin } from "../type/login.type";
 import { routerConstant } from "../utils/constant/routerConstant";
 
