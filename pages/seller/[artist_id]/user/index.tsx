@@ -4,6 +4,7 @@ import ListUser from '@/src/view/user/ListUser';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
+
 const User = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
