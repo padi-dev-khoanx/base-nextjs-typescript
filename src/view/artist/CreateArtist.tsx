@@ -1,13 +1,13 @@
-import { SellerInput } from "@/src/components/common/SellerInput";
-import { SellerTextArea } from "@/src/components/common/SellerTextArea";
-import { SellerUrlInput } from "@/src/components/common/SellerUrlInput";
+import InputSeller from "@/src/components/common/seller/InputSeller";
+import InputUrlSeller from "@/src/components/common/seller/InputUrlSeller";
+import TextAreaSeller from "@/src/components/common/seller/TextAreaSeller";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { UploadImage } from "@/src/components/upload/UploadImage";
 import { ParamsCreateGroup } from "@/src/type/artist.type";
 import { ErrorMessage } from "@hookform/error-message";
 import { UploadProps } from "antd";
 import { UploadFile } from "antd/lib/upload";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form/dist/types";
 
@@ -38,10 +38,10 @@ export const CreateArtist = () => {
   };
 
   const {
-    register,
     handleSubmit,
     setValue,
     clearErrors,
+    control,
     formState: { errors },
   } = useForm<ParamsCreateGroup>({
     mode: "onChange",
@@ -51,17 +51,15 @@ export const CreateArtist = () => {
     },
   });
 
-  useEffect(() => {
-    register("logo", {
-      required: "Please fill out this field",
-    });
-    register("main_images", {
-      required: "Please fill out this field",
-    });
-  }, [register]);
-  const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {
-    
-  };
+  // useEffect(() => {
+  //   register("logo", {
+  //     required: "Please fill out this field",
+  //   });
+  //   register("main_images", {
+  //     required: "Please fill out this field",
+  //   });
+  // }, [register]);
+  const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {};
 
   return (
     <>
@@ -76,14 +74,13 @@ export const CreateArtist = () => {
                     <span className="text-[#FF4D4F]">*</span>
                     <span className="text-sm leading-[22px]">グループ名</span>
                   </label>
-                  <SellerInput
+                  <InputSeller
                     type="text"
                     placeholder="グループ名"
-                    {...register("name", {
-                      required: "Please fill out this field",
-                    })}
                     name="name"
-                    errors={errors}
+                    control={control}
+                    message={errors && errors.name && errors.name.message}
+                    label=""
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3 mb-[17px]">
@@ -149,15 +146,14 @@ export const CreateArtist = () => {
                     <span className="text-sm leading-[22px]">URL</span>
                   </label>
                   <div>
-                    <SellerUrlInput
+                    <InputUrlSeller
                       type="text"
-                      url=""
                       placeholder="URL"
-                      {...register("url", {
-                        required: "Please fill out this field",
-                      })}
                       name="url"
-                      errors={errors}
+                      domain=""
+                      control={control}
+                      message={errors && errors.url && errors.url.message}
+                      label=""
                     />
                     <div className="text-black/[0.45] text-sm leading-[22px] pt-[9px]">
                       <p>半角英数字またはハイフン(-)3文字以上</p>
@@ -170,14 +166,15 @@ export const CreateArtist = () => {
                     <span className="text-[#FF4D4F]">*</span>
                     <span className="text-sm leading-[22px]">説明文</span>
                   </label>
-                  <SellerTextArea
+                  <TextAreaSeller
                     placeholder={"Autosize height based on content lines"}
-                    register={register}
                     name={"description"}
-                    option={{
-                      required: "Please fill out this field",
-                    }}
-                    errors={errors}
+                    control={control}
+                    message={
+                      errors && errors.description && errors.description.message
+                    }
+                    label=""
+                    rows={4}
                   />
                 </div>
                 <div className="w-full md:w-1/2 px-3 mb-[40px]">
