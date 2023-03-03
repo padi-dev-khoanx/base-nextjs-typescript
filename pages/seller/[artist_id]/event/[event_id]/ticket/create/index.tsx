@@ -1,20 +1,15 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import ListUser from '@/src/view/user/ListUser';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-const User = () => {
+const SelletCreateTicket = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
-    setCurrentMenuItem('User');
+    setCurrentMenuItem('event');
   }, []);
 
-  return (
-    <LayoutSeller title='List user'>
-      <ListUser />
-    </LayoutSeller>
-  );
+  return <LayoutSeller title='Create ticket'>List ticket</LayoutSeller>;
 };
 
-export default User;
+export default SelletCreateTicket;
