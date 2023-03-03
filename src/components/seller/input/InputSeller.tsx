@@ -1,7 +1,7 @@
 import { IFormPropsCustomInput } from "@/src/type/seller/input.type";
 import { Input } from "antd";
 import { Controller } from "react-hook-form";
-import LabelRequired from "./LabelRequired";
+import LabelRequired from "../../common/LabelRequired";
 
 const InputSeller = ({
   control,
