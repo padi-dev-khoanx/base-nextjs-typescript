@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import "loading.css";
+@import "custom-antd.css";
 @import "react-toastify/dist/ReactToastify.css";
+
 html,
 body {
     padding: 0;

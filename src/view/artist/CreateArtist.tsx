@@ -1,6 +1,6 @@
-import InputSeller from "@/src/components/common/seller/InputSeller";
-import InputUrlSeller from "@/src/components/common/seller/InputUrlSeller";
-import TextAreaSeller from "@/src/components/common/seller/TextAreaSeller";
+import InputSeller from "@/src/components/seller/input/InputSeller";
+import InputUrlSeller from "@/src/components/seller/input/InputUrlSeller";
+import TextAreaSeller from "@/src/components/seller/input/TextAreaSeller";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { UploadImage } from "@/src/components/upload/UploadImage";
 import { ParamsCreateGroup } from "@/src/type/artist.type";
