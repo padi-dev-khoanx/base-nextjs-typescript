@@ -4,26 +4,26 @@ import { SettingOutlined } from '@ant-design/icons';
 export const sidebarItem = [
   {
     icon: SettingOutlined,
-    name: 'Dashboard',
+    name: 'アーティスト',
     id: '1',
-    path: (artist_id: string) => routerConstant.seller.artist_id.index(artist_id),
+    path: (artist_id: string) => routerConstant.seller.manage_artist.dashboard.index(artist_id),
   },
   {
     icon: SettingOutlined,
-    name: 'User',
+    name: 'ダッシュボード',
     id: '2',
-    path: (artist_id: string) => routerConstant.seller.user.index,
+    path: (artist_id: string) => routerConstant.seller.manage_artist.user.index(artist_id),
   },
   {
     icon: SettingOutlined,
-    name: 'Event',
+    name: 'ユーザー',
     id: '3',
-    path: (artist_id: string) => routerConstant.seller.artist_create,
+    path: (artist_id: string) => routerConstant.seller.manage_artist.event.index(artist_id),
   },
   {
     icon: SettingOutlined,
-    name: 'Member',
+    name: 'メンバー',
     id: '4',
-    path: (artist_id: string) => routerConstant.seller.artist_edit,
+    path: (artist_id: string) => routerConstant.seller.manage_artist.member.index(artist_id),
   },
 ];

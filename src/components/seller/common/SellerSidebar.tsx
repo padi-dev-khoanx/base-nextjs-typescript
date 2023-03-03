@@ -11,9 +11,10 @@ const SellerSidebar = () => {
   const [isActiveState, setIsActiveState] = useState(routerConstant.seller.artist);
   const router = useRouter();
   useEffect(() => {
-    setIsActiveState(router.pathname);
+    setIsActiveState(router.asPath);
   }, [router]);
-
+  console.log('router', router);
+  console.log('isActiveState', isActiveState);
   return (
     <div className='bg-[#FAFAFA] w-[280px] fixed left-0 h-full'>
       <div className='pt-10 px-4'>
@@ -37,7 +38,7 @@ const SellerSidebar = () => {
         </div>
         <div className='flex items-center py-[9px] px-6 side-active'>
           <SettingOutlined className='mr-[10px]' />
-          <span>Artist</span>
+          <span>アーティスト</span>
         </div>
         <div className='h-[0.5px] w-full bg-gray-300 mt-2' />
         <div className='mt-2'>

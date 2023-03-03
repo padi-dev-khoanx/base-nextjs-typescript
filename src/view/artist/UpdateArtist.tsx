@@ -1,5 +1,5 @@
-import { SellerInput } from "@/src/components/common/SellerInput";
-import { SellerTextArea } from "@/src/components/common/SellerTextArea";
+// import { SellerInput } from "@/src/components/common/SellerInput";
+// import { SellerTextArea } from "@/src/components/common/SellerTextArea";
 import { SellerHeaderUpdateCreate } from "@/src/components/seller/common/SellerHeaderUpdateCreate";
 import { UploadImage } from "@/src/components/upload/UploadImage";
 import { ParamsUpdateGroup } from "@/src/type/artist.type";
@@ -93,7 +93,7 @@ export const UpdateArtist = () => {
                     <span className="text-[#FF4D4F]">*</span>
                     <span className="text-sm leading-[22px]">グループ名</span>
                   </label>
-                  <SellerInput
+                  {/* <SellerInput
                     type="text"
                     placeholder="グループ名"
                     {...register("name", {
@@ -101,7 +101,7 @@ export const UpdateArtist = () => {
                     })}
                     name="name"
                     errors={errors}
-                  />
+                  /> */}
                 </div>
                 <div className="w-full md:w-1/2 px-3 mb-[17px]">
                   <label className="block  tracking-wide font-normal pb-[8px]">
@@ -185,7 +185,7 @@ export const UpdateArtist = () => {
                     <span className="text-[#FF4D4F]">*</span>
                     <span className="text-sm leading-[22px]">説明文</span>
                   </label>
-                  <SellerTextArea
+                  {/* <SellerTextArea
                     placeholder={"Autosize height based on content lines"}
                     register={register}
                     name={"description"}
@@ -194,7 +194,7 @@ export const UpdateArtist = () => {
                     }}
                     errors={errors}
                     textLength={getValues("description")?.length}
-                  />
+                  /> */}
                 </div>
                 {/* {isFetchedAfterMount &&
                   ["active", "locked"].includes(groupData?.status) && (
