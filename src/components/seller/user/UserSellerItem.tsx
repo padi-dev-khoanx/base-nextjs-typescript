@@ -1,6 +1,7 @@
 import { UserGroup } from '@/src/type/artist.type';
 import { routerConstant } from '@/src/constant/routerConstant';
 import Link from 'next/link';
+import React from 'react';
 
 export const UserSellerItem = ({ data, id }: { data: UserGroup; id: string }) => {
   console.log('link', routerConstant.seller.manage_artist.user.edit(id, String(data.id)));

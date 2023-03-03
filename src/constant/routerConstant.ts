@@ -7,22 +7,22 @@ export const routerConstant = {
     artist_edit: "/seller/artist/edit",
     manage_artist: {
       dashboard: {
-        index: (artist_id: string) => `seller/${artist_id}/dashboard`,
+        index: (artist_id: string) => `/seller/${artist_id}/dashboard`,
       },
       user: {
         index: (artist_id: string) => `/seller/${artist_id}/user`,
         invite: (artist_id: string) => `/seller/${artist_id}/user/invite`,
-        edit: (artist_id: string, user_id: string) => `seller/${artist_id}/user/edit/${user_id}`
+        edit: (artist_id: string, user_id: string) => `/seller/${artist_id}/user/edit/${user_id}`
       },
       event: {
         index: (artist_id: string) => `/seller/${artist_id}/event`,
         create: (artist_id: string) => `/seller/${artist_id}/event/create`,
-        edit: (artist_id: string, event_id : string) => `seller/${artist_id}/event/edit/${event_id}`,
+        edit: (artist_id: string, event_id : string) => `/seller/${artist_id}/event/edit/${event_id}`,
 
         ticket: {
           index: (artist_id: string, event_id: string) => `/seller/${artist_id}/event/${event_id}/ticket`,
           create: (artist_id: string, event_id: string) => `/seller/${artist_id}/event/${event_id}/ticket/create`,
-          edit: (artist_id: string, event_id: string, ticket_id: string) => `seller/${artist_id}/event/${event_id}/ticket/edit/${ticket_id}`
+          edit: (artist_id: string, event_id: string, ticket_id: string) => `/seller/${artist_id}/event/${event_id}/ticket/edit/${ticket_id}`
         },
       },
       member: {

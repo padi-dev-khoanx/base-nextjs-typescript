@@ -5,7 +5,7 @@ import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
 import { useEffect } from 'react';
 import { SellerDashboardView } from '@/src/components/seller/dashboard/SellerDashboardView';
 
-const DashboardGroup: NextPage = () => {
+const DashboardArtist: NextPage = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
     setCurrentMenuItem('dashboard');
@@ -18,4 +18,4 @@ const DashboardGroup: NextPage = () => {
   );
 };
 
-export default DashboardGroup;
+export default DashboardArtist;
