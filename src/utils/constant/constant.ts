@@ -20,13 +20,13 @@ export const sidebarItem = [
     icon: SettingOutlined,
     name: "Event",
     id: "3",
-    path: (artist_id: string) => routerConstant.seller.artist_create,
+    path: (artist_id: string) => routerConstant.seller.manage_artist.event.index(artist_id),
   },
   {
     icon: SettingOutlined,
     name: "Member",
     id: "4",
-    path: (artist_id: string) => routerConstant.seller.artist_edit,
+    path: (artist_id: string) => routerConstant.seller.manage_artist.member.index(artist_id),
   },
 ];
 

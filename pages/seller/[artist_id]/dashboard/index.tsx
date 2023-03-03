@@ -12,7 +12,7 @@ const DashboardGroup: NextPage = () => {
   }, []);
 
   return (
-    <LayoutSeller title="List groups">
+    <LayoutSeller title="dashboard">
       <SellerDashboardView />
     </LayoutSeller>
   );

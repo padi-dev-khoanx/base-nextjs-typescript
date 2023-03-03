@@ -2,7 +2,7 @@ import { UserGroup } from "@/src/type/artist.type";
 import { routerConstant } from "@/src/utils/constant/routerConstant";
 import Link from "next/link";
 
-export const UserSellerItem = ({
+export const EventSellerItem = ({
   data,
   id,
 }: {
@@ -15,7 +15,7 @@ export const UserSellerItem = ({
         <strong className="text-base">{data.name}</strong>
       </div>
       <Link
-        href={`${routerConstant.seller.manage_artist.user.edit(
+        href={`${routerConstant.seller.manage_artist.event.edit(
           id,
           String(data.id)
         )}`}

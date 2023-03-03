@@ -21,6 +21,7 @@ const LoginView = () => {
   });
   const handleLogin: SubmitHandler<IFormLogin> = (value) => {
     console.log("value:::", value);
+    router.push(`${routerConstant.seller.artist}`);
   };
   return (
     <div>
@@ -29,6 +30,7 @@ const LoginView = () => {
         className="flex flex-col space-y-4"
       >
         <InputSeller
+          label="username"
           name="username"
           control={control}
           rules={{
@@ -38,6 +40,7 @@ const LoginView = () => {
           placeholder="Username"
         />
         <InputSeller
+          label="password"
           name="password"
           control={control}
           rules={{
