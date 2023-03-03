@@ -7,13 +7,14 @@ export const sidebarItem = [
     name: "Dashboard",
     id: "1",
     path: (artist_id: string) =>
-      routerConstant.seller.artist_id.index(artist_id),
+      routerConstant.seller.manage_artist.dashboard.index(artist_id),
   },
   {
     icon: SettingOutlined,
     name: "User",
     id: "2",
-    path: (artist_id: string) => "",
+    path: (artist_id: string) => 
+      routerConstant.seller.manage_artist.user.index(artist_id),
   },
   {
     icon: SettingOutlined,

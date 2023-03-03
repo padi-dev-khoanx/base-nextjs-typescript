@@ -1,17 +1,20 @@
 export const routerConstant = {
   seller: {
     index: "/seller",
+    login: "/seller/login",
     artist: "/seller/artist",
     artist_create: "/seller/artist/create",
     artist_edit: "/seller/artist/edit",
-    artist_id: {
-      index: (artist_id: string) => `seller/${artist_id}/dashboard`,
-    },
-    user: {
-      index: "/seller/user",
-      invite: "/seller/user/invite",
-      change_role: "/seller/user/change-role",
-    },
+    manage_artist: {
+      dashboard: {
+        index: (artist_id: string) => `seller/${artist_id}/dashboard`,
+      },
+      user: {
+        index: (artist_id: string) => `/seller/${artist_id}/user`,
+        invite: (artist_id: string) => `/seller/${artist_id}/user/invite`,
+        edit: (artist_id: string) => `seller/${artist_id}/edit`
+      },
+    }
   },
   error404: "/404",
   error500: "/500",
