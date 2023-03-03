@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
-import { useSetRecoilState } from 'recoil';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
 
-const SellerCreateEvent = () => {
+const SelletCreateTicket = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
     setCurrentMenuItem('event');
   }, []);
 
-  return <LayoutSeller title='Create Event'>Create Event</LayoutSeller>;
+  return <LayoutSeller title='Create ticket'>List ticket</LayoutSeller>;
 };
 
-export default SellerCreateEvent;
+export default SelletCreateTicket;

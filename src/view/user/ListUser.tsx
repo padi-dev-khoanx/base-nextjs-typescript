@@ -2,11 +2,10 @@ import { SellerHeader } from '@/src/components/seller/common/SellerHeader';
 import { UserSellerItem } from '@/src/components/seller/user/UserSellerItem';
 import { UserGroup } from '@/src/type/artist.type';
 import { routerConstant } from '@/src/constant/routerConstant';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import React from 'react';
 
 const ListUser = () => {
-  const router = useRouter();
   const artistId = '1';
   const data: any = {
     data: {
@@ -22,7 +21,13 @@ const ListUser = () => {
 
   return (
     <div>
-      <SellerHeader title='User' buttonRightBlueText='Invite' />
+      <SellerHeader
+        title='User'
+        buttonRightBlue={() =>
+          Router.push(routerConstant.seller.manage_artist.user.invite(artistId))
+        }
+        buttonRightBlueText='Invite'
+      />
       {listUser.map((user: UserGroup) => (
         <UserSellerItem key={user.id} id={artistId} data={user} />
       ))}

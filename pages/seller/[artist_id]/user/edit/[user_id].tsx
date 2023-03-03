@@ -1,22 +1,20 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import ListUser from '@/src/view/user/ListUser';
-import { useEffect } from 'react';
+import UpdateUser from '@/src/view/user/UpdateUser';
+import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { useRouter } from 'next/router';
-const User = () => {
+
+const SellerEditUser = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
   useEffect(() => {
-    setCurrentMenuItem('User');
+    setCurrentMenuItem('user');
   }, []);
-  const route = useRouter();
-  console.log('list', route);
 
   return (
-    <LayoutSeller title='List user'>
-      <ListUser />
+    <LayoutSeller title='update user'>
+      <UpdateUser />
     </LayoutSeller>
   );
 };
 
-export default User;
+export default SellerEditUser;
