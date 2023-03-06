@@ -1,6 +1,6 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import InviteView from '@/src/view/user/InviteView';
+import InviteUserView from '@/src/view/user/InviteUserView';
 import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
@@ -12,7 +12,7 @@ const InviteUser = () => {
 
   return (
     <LayoutSeller title='Invite user'>
-      <InviteView />
+      <InviteUserView />
     </LayoutSeller>
   );
 };
