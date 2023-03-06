@@ -1,6 +1,6 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import UpdateUser from '@/src/view/user/UpdateUser';
+import UpdateUserView from '@/src/view/user/UpdateUserView';
 import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
@@ -12,7 +12,7 @@ const SellerEditUser = () => {
 
   return (
     <LayoutSeller title='update user'>
-      <UpdateUser />
+      <UpdateUserView />
     </LayoutSeller>
   );
 };
