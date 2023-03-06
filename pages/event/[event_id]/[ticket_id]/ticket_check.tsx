@@ -2,7 +2,7 @@ import LayoutDocument from '@/src/components/layouts/LayoutDocument';
 import TicketBuyCheckView from '@/src/view/ticket/TicketBuyCheckView';
 import React from 'react';
 
-const Event = () => {
+const TicketCheck = () => {
   return (
     <LayoutDocument title='Ticket Buy'>
       <TicketBuyCheckView />
@@ -10,4 +10,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default TicketCheck;

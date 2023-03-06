@@ -1,13 +1,13 @@
 import LayoutDocument from '@/src/components/layouts/LayoutDocument';
-import TicketBuySuccessView from '@/src/view/ticket/TicketBuySuccessView';
+import TicketBuyView from '@/src/view/ticket/TicketBuyView';
 import React from 'react';
 
-const Event = () => {
+const TicketDetail = () => {
   return (
     <LayoutDocument title='Ticket Buy'>
-      < TicketBuySuccessView />
+      <TicketBuyView />
     </LayoutDocument>
   );
 };
 
-export default Event;       
+export default TicketDetail;
