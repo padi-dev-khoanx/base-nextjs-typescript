@@ -1,7 +1,7 @@
-import { IFormPropsCustomInput } from "@/src/type/seller/input.type";
-import { Input } from "antd";
-import { Controller } from "react-hook-form";
-import LabelRequired from "../../common/LabelRequired";
+import { IFormPropsCustomInput } from '@/src/type/seller/input.type';
+import { Input } from 'antd';
+import { Controller } from 'react-hook-form';
+import LabelRequired from '../../common/LabelRequired';
 
 const InputSeller = ({
   control,
@@ -20,12 +20,16 @@ const InputSeller = ({
         name={name}
         rules={rules}
         render={({ field: { value, onChange } }) => (
-          <Input {...rest} value={value} onChange={onChange} id={name} />
+          <Input
+            className='rounded-sm w-[31.25%]'
+            {...rest}
+            value={value}
+            onChange={onChange}
+            id={name}
+          />
         )}
       />
-      {message ? (
-        <span className="text-xs text-red-400 mt-1">{message}</span>
-      ) : null}
+      {message ? <span className='text-xs text-red-400 mt-1'>{message}</span> : null}
     </div>
   );
 };
