@@ -1,12 +1,10 @@
 import { SellerHeader } from '@/src/components/seller/common/SellerHeader';
-import { TicketSellerItem } from '@/src/components/seller/event/ticket/TicketSellerItem';
+import { EventSellerItem } from '@/src/components/seller/event/EventSellerItem';
 import { routerConstant } from '@/src/constant/routerConstant';
 import Router from 'next/router';
 
-export const ListEventTicket = () => {
+export const ListEventView = () => {
   const artistId = '1';
-  const eventId = '1';
-
   const data: any = {
     data: {
       items: [
@@ -17,28 +15,21 @@ export const ListEventTicket = () => {
       ],
     },
   };
-  const listTicket = data?.data.items;
+  const listEvent = data?.data.items;
   return (
     <>
       <div className="flex font-['Roboto']">
         <div className='w-full'>
           <SellerHeader
-            title='チケット'
+            title='イベント'
             buttonRightBlue={() =>
-              Router.push(
-                routerConstant.seller.manage_artist.event.ticket.create(artistId, eventId),
-              )
+              Router.push(routerConstant.seller.manage_artist.event.create(artistId))
             }
             buttonRightBlueText='新規追加'
           />
           <div>
-            {listTicket.map((ticket: any) => (
-              <TicketSellerItem
-                key={ticket.id}
-                eventId={eventId}
-                artistId={artistId}
-                data={ticket}
-              />
+            {listEvent.map((user: any) => (
+              <EventSellerItem key={user.id} id={artistId} data={user} />
             ))}
           </div>
         </div>

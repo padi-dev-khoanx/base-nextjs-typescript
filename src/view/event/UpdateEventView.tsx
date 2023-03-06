@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UpdateEvent = () => {
+const UpdateEventView = () => {
   return <div>UpdateEvent</div>;
 };
 
-export default UpdateEvent;
+export default UpdateEventView;

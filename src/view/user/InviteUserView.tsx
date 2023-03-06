@@ -1,7 +1,7 @@
 import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
 import React from 'react';
 
-const Invite = () => {
+const InviteUserView = () => {
   return (
     <div>
       <SellerHeaderUpdateCreate title='ユーザーを招待' />
@@ -9,4 +9,4 @@ const Invite = () => {
   );
 };
 
-export default Invite;
+export default InviteUserView;

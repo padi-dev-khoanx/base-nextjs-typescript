@@ -1,6 +1,6 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import { ListEventTicket } from '@/src/view/event/ticket/ListEventTicket';
+import { ListEventTicketView } from '@/src/view/event/ticket/ListEventTicketView';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
@@ -12,7 +12,7 @@ const ListTicket = () => {
 
   return (
     <LayoutSeller title='List ticket'>
-      <ListEventTicket />
+      <ListEventTicketView />
     </LayoutSeller>
   );
 };
