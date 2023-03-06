@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const LabelRequired = ({
   name,
@@ -11,8 +11,10 @@ const LabelRequired = ({
 }) => {
   return (
     <div>
-      <span className={isRequired ? "text-red-400" : "hidden"}>*</span>
-      <label htmlFor={name}>{label}</label>
+      <span className={isRequired ? 'text-red-400' : 'hidden'}>*</span>
+      <label className='font-normal text-sm' htmlFor={name}>
+        {label}
+      </label>
     </div>
   );
 };
