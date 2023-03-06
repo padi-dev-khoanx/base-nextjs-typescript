@@ -9,7 +9,7 @@ import { routerConstant } from '@/src/constant/routerConstant';
 
 const Invite = () => {
   const router = useRouter();
-  const handleInvite: SubmitHandler<Invite> = (value) => {
+  const hanleSubmitForm: SubmitHandler<Invite> = (value) => {
     router.push(routerConstant.seller.manage_artist.user.index('1'));
   };
   const {
@@ -26,7 +26,7 @@ const Invite = () => {
   return (
     <div>
       <SellerHeaderUpdateCreate title='ユーザーを招待' />
-      <form onSubmit={handleSubmit(handleInvite)} className='pt-4 pl-4'>
+      <form onSubmit={handleSubmit(hanleSubmitForm)} className='pt-4 pl-4'>
         <InputSeller
           name='email'
           control={control}
