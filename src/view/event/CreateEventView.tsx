@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CreateEvent = () => {
+const CreateEventView = () => {
   return <div>CreateEvent</div>;
 };
 
-export default CreateEvent;
+export default CreateEventView;

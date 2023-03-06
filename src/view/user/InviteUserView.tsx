@@ -7,7 +7,7 @@ import { Invite } from '@/src/type/artist.type';
 import { useRouter } from 'next/router';
 import { routerConstant } from '@/src/constant/routerConstant';
 
-const Invite = () => {
+const InviteUserView = () => {
   const router = useRouter();
   const hanleSubmitForm: SubmitHandler<Invite> = (value) => {
     router.push(routerConstant.seller.manage_artist.user.index('1'));
@@ -45,4 +45,4 @@ const Invite = () => {
   );
 };
 
-export default Invite;
+export default InviteUserView;
