@@ -10,7 +10,7 @@ import { UpdateUser } from '@/src/type/artist.type';
 
 const UpdateUser = () => {
   const router = useRouter();
-  const handleChange: SubmitHandler<UpdateUser> = (value) => {
+  const handleUpdateUser: SubmitHandler<UpdateUser> = (value) => {
     router.push(routerConstant.seller.manage_artist.user.index('1'));
   };
   const {
@@ -28,7 +28,7 @@ const UpdateUser = () => {
   return (
     <div>
       <SellerHeaderUpdateCreate title='ユーザーを招待' />
-      <form onSubmit={handleSubmit(handleChange)} className='pt-4 pl-4'>
+      <form onSubmit={handleSubmit(handleUpdateUser)} className='pt-4 pl-4'>
         <InputSeller
           name='email'
           control={control}
