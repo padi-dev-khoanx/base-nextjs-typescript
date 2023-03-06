@@ -27,7 +27,11 @@ const UpdateUser = () => {
 
   return (
     <div>
-      <SellerHeaderUpdateCreate title='ユーザーを招待' />
+      <SellerHeaderUpdateCreate
+        title='ユーザーを招待'
+        showButtonRight={true}
+        conditionButtonRight={true}
+      />
       <form onSubmit={handleSubmit(handleUpdateUser)} className='pt-4 pl-4'>
         <InputSeller
           name='email'
