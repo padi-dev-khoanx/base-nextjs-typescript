@@ -5,9 +5,11 @@ import ButtonCommon from '../components/common/ButtonCommon';
 import InputSeller from '../components/seller/input/InputSeller';
 import { IFormLogin } from '../type/login.type';
 import { routerConstant } from '../constant/routerConstant';
+import { useMutationLogin } from '../api/login.api';
 
-const LoginView = () => {
+const Login = () => {
   const router = useRouter();
+  const { mutateAsync, isLoading } = useMutationLogin();
   const {
     formState: { errors },
     control,
@@ -19,8 +21,9 @@ const LoginView = () => {
     },
     mode: 'onChange',
   });
-  const handleLogin: SubmitHandler<IFormLogin> = (value) => {
+  const handleLogin: SubmitHandler<IFormLogin> = async (value) => {
     console.log('value:::', value);
+    const data = await mutateAsync(value);
     router.push(`${routerConstant.seller.artist}`);
   };
   return (
@@ -47,10 +50,12 @@ const LoginView = () => {
           type='password'
           placeholder='Password'
         />
-        <ButtonCommon type='submit'>Login</ButtonCommon>
+        <ButtonCommon type='submit' isLoading={isLoading}>
+          Login
+        </ButtonCommon>
       </form>
     </div>
   );
 };
 
-export default LoginView;
+export default Login;

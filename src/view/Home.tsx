@@ -11,6 +11,7 @@ const Dashboard = ({ data }: any) => {
     handleSubmit,
     formState: { errors },
     control,
+    getValues
   } = useForm({
     defaultValues: {
       name: "",

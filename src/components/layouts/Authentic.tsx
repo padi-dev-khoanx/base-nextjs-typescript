@@ -4,18 +4,19 @@ import { useSetRecoilState } from 'recoil';
 import { verifyJwt } from '../../utils/verifyJwt';
 import { useQueryMyInfoCache } from '@/src/api/use.api';
 import { loggedState } from '@/src/recoil/login.recoil';
+import { JWT } from '@/src/constant/constant';
 
 const Authentic = () => {
   const cookies = new Cookies();
   const setLogged = useSetRecoilState(loggedState);
 
   useEffect(() => {
-    if (!verifyJwt(cookies.get('jwt'))) {
+    if (!verifyJwt(cookies.get(JWT))) {
       setLogged(false);
     }
   });
 
-  useQueryMyInfoCache(verifyJwt(cookies.get('jwt')));
+  useQueryMyInfoCache(verifyJwt(cookies.get(JWT)));
 
   return null;
 };

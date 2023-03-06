@@ -13,7 +13,7 @@ const InputSeller = ({
   ...rest
 }: IFormPropsCustomInput) => {
   return (
-    <div>
+    <div className="flex flex-col">
       <LabelRequired isRequired={isRequired} name={name} label={label} />
       <Controller
         control={control}
