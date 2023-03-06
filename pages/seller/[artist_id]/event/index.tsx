@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
-import { ListEvent } from '@/src/view/event/ListEvent';
+import { ListEventView } from '@/src/view/event/ListEventView';
 import { useSetRecoilState } from 'recoil';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
 
@@ -12,7 +12,7 @@ const Event = () => {
 
   return (
     <LayoutSeller title='List Event'>
-      <ListEvent />
+      <ListEventView />
     </LayoutSeller>
   );
 };

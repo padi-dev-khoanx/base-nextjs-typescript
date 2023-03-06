@@ -5,7 +5,7 @@ import { routerConstant } from '@/src/constant/routerConstant';
 import Router from 'next/router';
 import React from 'react';
 
-const ListUser = () => {
+const ListUserView = () => {
   const artistId = '1';
   const data: any = {
     data: {
@@ -35,4 +35,4 @@ const ListUser = () => {
   );
 };
 
-export default ListUser;
+export default ListUserView;
