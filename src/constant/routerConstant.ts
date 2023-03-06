@@ -37,6 +37,11 @@ export const routerConstant = {
   event:{
     index:'event',
     detail:(event_id:number) =>`/event/${event_id}`,
+    ticket:{
+      detail:(event_id:number,ticket_id:number) => `/event/${event_id}/ticket/${ticket_id}`,
+      check:(event_id:number,ticket_id:number) => `/event/${event_id}/ticket/${ticket_id}/ticket-check`,
+      success:(event_id:number,ticket_id:number) => `/event/${event_id}/ticket/${ticket_id}/ticket-success`
+    }
   }
 };
 
