@@ -13,6 +13,14 @@ export interface Artist {
   url: string;
 }
 
+export interface Invite {
+  email: string
+}
+
+export interface UpdateUser {
+  email: string,
+  authority : string
+}
 export interface Member {
   id: number;
   name: string;

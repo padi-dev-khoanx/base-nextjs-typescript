@@ -5,7 +5,7 @@ import { Artist } from '@/src/type/artist.type';
 import { routerConstant } from '@/src/constant/routerConstant';
 import Router from 'next/router';
 
-export const ListArtist = () => {
+export const ListArtistView = () => {
   const data: any = {
     data: {
       items: [

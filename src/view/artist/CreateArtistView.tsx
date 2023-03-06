@@ -1,27 +1,22 @@
-// import { SellerInput } from "@/src/components/common/SellerInput";
-// import { SellerTextArea } from "@/src/components/common/SellerTextArea";
-import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
-import AreaTag from '@/src/components/seller/input/AreaTag';
 import InputSeller from '@/src/components/seller/input/InputSeller';
 import InputUrlSeller from '@/src/components/seller/input/InputUrlSeller';
 import TextAreaSeller from '@/src/components/seller/input/TextAreaSeller';
+import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
 import { UploadImage } from '@/src/components/upload/UploadImage';
-import { ParamsUpdateGroup } from '@/src/type/artist.type';
+import { ParamsCreateGroup } from '@/src/type/artist.type';
 import { ErrorMessage } from '@hookform/error-message';
 import { UploadProps } from 'antd';
 import { UploadFile } from 'antd/lib/upload';
-import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form/dist/types';
 
-export const UpdateArtist = () => {
-  const groupData: any = {};
+export const CreateArtistView = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
-  const [listMember, setListMember] = useState<{ name: string }[]>([]);
-
   const handleChangeImage: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     const listUrlImage = newFileList.map((item) => {
-      return item?.response?.data?.[0] ?? item?.url;
+      return item?.response?.data?.[0];
     });
     setValue('main_images', listUrlImage);
     if (listUrlImage.length) {
@@ -31,7 +26,7 @@ export const UpdateArtist = () => {
   };
 
   const handleChangeImageLogo: UploadProps['onChange'] = ({ fileList: newFileList }) => {
-    setValue('logo', newFileList?.[0]?.response?.data?.[0] ?? newFileList?.[0]?.url);
+    setValue('logo', newFileList?.[0]?.response?.data?.[0]);
     if (newFileList?.[0]?.response?.data?.[0]) {
       clearErrors('logo');
     }
@@ -39,66 +34,49 @@ export const UpdateArtist = () => {
   };
 
   const {
-    register,
     handleSubmit,
     setValue,
     clearErrors,
     control,
     formState: { errors },
-    getValues,
-  } = useForm<ParamsUpdateGroup>({
+  } = useForm<ParamsCreateGroup>({
     mode: 'onChange',
     defaultValues: {
-      name: groupData?.name,
+      logo: '',
       main_images: [],
-      member: '',
     },
   });
 
-  useEffect(() => {
-    register('logo', {
-      required: 'Please fill out this field',
-    });
-    register('main_images', {
-      required: 'Please fill out this field',
-    });
-  }, [register]);
-
-  const onSubmit: SubmitHandler<ParamsUpdateGroup> = (params) => {};
+  // useEffect(() => {
+  //   register("logo", {
+  //     required: "Please fill out this field",
+  //   });
+  //   register("main_images", {
+  //     required: "Please fill out this field",
+  //   });
+  // }, [register]);
+  const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {};
 
   return (
     <>
       <div className='flex'>
         <div className='w-full'>
-          <SellerHeaderUpdateCreate title='新しいグループ' showButtonRight={true} />
+          <SellerHeaderUpdateCreate title='新しいグループ' />
           <div>
             <div className='p-[34px]'>
               <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
+                  <label className='block  tracking-wide font-normal pb-[8px]'>
+                    <span className='text-[#FF4D4F]'>*</span>
+                    <span className='text-sm leading-[22px]'>グループ名</span>
+                  </label>
                   <InputSeller
                     type='text'
                     placeholder='グループ名'
                     name='name'
                     control={control}
                     message={errors && errors.name && errors.name.message}
-                    label='グループ名'
-                    isRequired={true}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
-                  />
-                </div>
-                <div className='w-full md:w-1/2 px-3 mb-[40px]'>
-                  <AreaTag
-                    placeholder='Placeholder'
-                    name='member'
-                    control={control}
-                    message={errors && errors.member && errors.member.message}
-                    label='List member'
-                    isRequired={true}
-                    listTagState={listMember}
-                    setListTagState={setListMember}
-                    setValue={setValue}
-                    getValues={getValues}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
+                    label=''
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
@@ -125,7 +103,7 @@ export const UpdateArtist = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
-                  <label className='block tracking-wide font-normal pb-[8px]'>
+                  <label className='block  tracking-wide font-normal pb-[8px]'>
                     <span className='text-[#FF4D4F]'>*</span>
                     <span className='text-sm leading-[22px]'>メイン画像</span>
                   </label>
@@ -155,6 +133,10 @@ export const UpdateArtist = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
+                  <label className='block  tracking-wide font-normal pb-[8px]'>
+                    <span className='text-[#FF4D4F]'>*</span>
+                    <span className='text-sm leading-[22px]'>URL</span>
+                  </label>
                   <div>
                     <InputUrlSeller
                       type='text'
@@ -162,10 +144,8 @@ export const UpdateArtist = () => {
                       name='url'
                       domain=''
                       control={control}
-                      message={errors && errors.main_images && errors.main_images.message}
-                      label='URL'
-                      isRequired={true}
-                      rules={{ required: { value: true, message: 'This field is required' } }}
+                      message={errors && errors.url && errors.url.message}
+                      label=''
                     />
                     <div className='text-black/[0.45] text-sm leading-[22px] pt-[9px]'>
                       <p>半角英数字またはハイフン(-)3文字以上</p>
@@ -174,15 +154,17 @@ export const UpdateArtist = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
+                  <label className='block  tracking-wide font-normal pb-[8px]'>
+                    <span className='text-[#FF4D4F]'>*</span>
+                    <span className='text-sm leading-[22px]'>説明文</span>
+                  </label>
                   <TextAreaSeller
-                    placeholder='Autosize height based on content lines'
-                    name='description'
+                    placeholder={'Autosize height based on content lines'}
+                    name={'description'}
                     control={control}
                     message={errors && errors.description && errors.description.message}
-                    label='説明文'
+                    label=''
                     rows={4}
-                    isRequired={true}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>

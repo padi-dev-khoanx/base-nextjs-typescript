@@ -1,9 +1,9 @@
 import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
-import ListUser from '@/src/view/user/ListUser';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
+import ListUserView from '@/src/view/user/ListUserView';
 
 const User = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
@@ -15,7 +15,7 @@ const User = () => {
 
   return (
     <LayoutSeller title='List user'>
-      <ListUser />
+      <ListUserView />
     </LayoutSeller>
   );
 };
