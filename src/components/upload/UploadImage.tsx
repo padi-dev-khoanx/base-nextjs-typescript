@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import { RcFile, UploadFile } from 'antd/lib/upload';
 import { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import { JWT } from '@/src/constant/constant';
 
 export const UploadImage = ({
   fileList,
@@ -79,7 +80,7 @@ export const UploadImage = ({
     <>
       <Upload
         action={process.env.NEXT_PUBLIC_API + 'upload/image'}
-        headers={{ Authorization: 'Bearer ' + cookies.get('jwt') }}
+        headers={{ Authorization: 'Bearer ' + cookies.get(JWT) }}
         listType='picture-card'
         fileList={fileList}
         onPreview={handlePreview}

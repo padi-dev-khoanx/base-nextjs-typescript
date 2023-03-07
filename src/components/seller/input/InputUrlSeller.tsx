@@ -15,7 +15,7 @@ const InputUrlSeller = ({
   ...rest
 }: IFormCustomInputURL) => {
   return (
-    <div>
+    <div className="flex flex-col">
       <LabelRequired isRequired={isRequired} name={name} label={label} />
       <Controller
         name={name}

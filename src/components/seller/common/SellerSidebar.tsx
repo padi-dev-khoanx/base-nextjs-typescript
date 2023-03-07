@@ -36,7 +36,7 @@ const SellerSidebar = () => {
           <span className='font-semibold'>username@example.com</span>
           <span className='text-sm leading-[22px] opacity-50'>Role</span>
         </div>
-        <div className='flex items-center py-[9px] px-6 side-active'>
+        <div className='flex items-center py-[9px] px-6 side-active cursor-pointer' onClick={() => router.push(routerConstant.seller.artist)}>
           <SettingOutlined className='mr-[10px]' />
           <span>アーティスト</span>
         </div>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { routerConstant } from "../constant/routerConstant";
 
-
 const HomeView = ({ data }: any) => {
   return (
     <div>
@@ -11,6 +10,7 @@ const HomeView = ({ data }: any) => {
             Event Archive
           </div>
           </Link>
+      
     </div>
   );
 };

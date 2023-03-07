@@ -2,20 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyJwt } from './src/utils/verifyJwt';
 import { isRouterPrivate, isRouterSeller, routerConstant } from '@/src/constant/routerConstant';
 import { isSeller } from '@/src/utils/checkRoleUser';
+import { JWT } from './src/constant/constant';
 
 export const middleware = (request: NextRequest) => {
-  const jwt = String(request.cookies.get('jwt'));
+  const jwt = String(request.cookies.get(JWT));
   const role = String(request.cookies.get('role'));
   const pathName = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
   if (isRouterPrivate(pathName) && !verifyJwt(jwt)) {
-    // return NextResponse.redirect(
-    //   new URL(
-    //     routerConstant.login + `?pre_path=${encodeURIComponent(pathName + search)}`,
-    //     request.url,
-    //   ),
-    // );
+    return NextResponse.redirect(
+      new URL(
+        routerConstant.login + `?pre_path=${encodeURIComponent(pathName + search)}`,
+        request.url,
+      ),
+    );
   }
 
   if (isRouterSeller(pathName) && !isSeller(role)) {

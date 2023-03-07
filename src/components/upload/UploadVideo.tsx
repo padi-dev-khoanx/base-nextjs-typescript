@@ -3,6 +3,7 @@ import Cookies from 'universal-cookie';
 import { RcFile, UploadFile } from 'antd/lib/upload';
 import { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import { JWT } from '@/src/constant/constant';
 
 export const UploadVideo = ({ fileList, handleChangeVideo, number }: any) => {
   const cookies = new Cookies();
@@ -73,7 +74,7 @@ export const UploadVideo = ({ fileList, handleChangeVideo, number }: any) => {
     <>
       <Upload
         action={process.env.NEXT_PUBLIC_API + 'upload/video'}
-        headers={{ Authorization: 'Bearer ' + cookies.get('jwt') }}
+        headers={{ Authorization: 'Bearer ' + cookies.get(JWT) }}
         listType='picture-card'
         fileList={fileList}
         onPreview={handlePreview}

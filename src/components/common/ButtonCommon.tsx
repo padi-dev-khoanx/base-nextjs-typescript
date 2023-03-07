@@ -9,7 +9,7 @@ const ButtonCommon = ({
   ...rest
 }: ButtonProps) => {
   const className = "bg-green-300 px-3 py-2 rounded-lg text-sm text-white"; // add your class name button default here
-  const classNameLoading = "bg-red-400 px-3 py-2 rounded-lg cursor-no-drop"; // add your class name button loading here
+  const classNameLoading = "bg-red-200 px-3 py-2 rounded-lg cursor-no-drop"; // add your class name button loading here
   const classNameDisable =
     "bg-gray-300 px-3 py-2 rounded-lg cursor-no-drop text-sm text-white"; // add your class name button disable here
   if (isDisable && isLoading) {

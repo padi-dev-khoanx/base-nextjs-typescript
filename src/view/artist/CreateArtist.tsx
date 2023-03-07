@@ -1,27 +1,24 @@
-// import { SellerInput } from "@/src/components/common/SellerInput";
-// import { SellerTextArea } from "@/src/components/common/SellerTextArea";
-import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
-import AreaTag from '@/src/components/seller/input/AreaTag';
 import InputSeller from '@/src/components/seller/input/InputSeller';
 import InputUrlSeller from '@/src/components/seller/input/InputUrlSeller';
 import TextAreaSeller from '@/src/components/seller/input/TextAreaSeller';
+import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
 import { UploadImage } from '@/src/components/upload/UploadImage';
-import { ParamsUpdateGroup } from '@/src/type/artist.type';
+import { ParamsCreateGroup } from '@/src/type/artist.type';
 import { ErrorMessage } from '@hookform/error-message';
 import { UploadProps } from 'antd';
 import { UploadFile } from 'antd/lib/upload';
 import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { SubmitHandler } from 'react-hook-form/dist/types';
+import AreaTag from '@/src/components/seller/input/AreaTag';
 
-export const UpdateArtistView = () => {
-  const groupData: any = {};
+export const CreateArtist = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [fileLogo, setFileLogo] = useState<UploadFile[]>([]);
   const [listMember, setListMember] = useState<{ name: string }[]>([]);
-
   const handleChangeImage: UploadProps['onChange'] = ({ fileList: newFileList }) => {
     const listUrlImage = newFileList.map((item) => {
-      return item?.response?.data?.[0] ?? item?.url;
+      return item?.response?.data?.[0];
     });
     setValue('main_images', listUrlImage);
     if (listUrlImage.length) {
@@ -31,7 +28,7 @@ export const UpdateArtistView = () => {
   };
 
   const handleChangeImageLogo: UploadProps['onChange'] = ({ fileList: newFileList }) => {
-    setValue('logo', newFileList?.[0]?.response?.data?.[0] ?? newFileList?.[0]?.url);
+    setValue('logo', newFileList?.[0]?.response?.data?.[0]);
     if (newFileList?.[0]?.response?.data?.[0]) {
       clearErrors('logo');
     }
@@ -39,22 +36,21 @@ export const UpdateArtistView = () => {
   };
 
   const {
-    register,
     handleSubmit,
     setValue,
     clearErrors,
     control,
     formState: { errors },
     getValues,
-  } = useForm<ParamsUpdateGroup>({
+    register,
+  } = useForm<ParamsCreateGroup>({
     mode: 'onChange',
     defaultValues: {
-      name: groupData?.name,
+      logo: '',
       main_images: [],
       member: '',
     },
   });
-
   useEffect(() => {
     register('logo', {
       required: 'Please fill out this field',
@@ -63,14 +59,13 @@ export const UpdateArtistView = () => {
       required: 'Please fill out this field',
     });
   }, [register]);
-
-  const onSubmit: SubmitHandler<ParamsUpdateGroup> = (params) => {};
+  const onSubmit: SubmitHandler<ParamsCreateGroup> = (params) => {};
 
   return (
     <>
       <div className='flex'>
         <div className='w-full'>
-          <SellerHeaderUpdateCreate title='新しいグループ' showButtonRight={true} />
+          <SellerHeaderUpdateCreate title='新しいグループ' />
           <div>
             <div className='p-[34px]'>
               <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
@@ -93,12 +88,10 @@ export const UpdateArtistView = () => {
                     control={control}
                     message={errors && errors.member && errors.member.message}
                     label='List member'
-                    isRequired={true}
                     listTagState={listMember}
                     setListTagState={setListMember}
                     setValue={setValue}
                     getValues={getValues}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
@@ -162,7 +155,7 @@ export const UpdateArtistView = () => {
                       name='url'
                       domain=''
                       control={control}
-                      message={errors && errors.main_images && errors.main_images.message}
+                      message={errors && errors.url && errors.url.message}
                       label='URL'
                       isRequired={true}
                       rules={{ required: { value: true, message: 'This field is required' } }}
@@ -186,7 +179,10 @@ export const UpdateArtistView = () => {
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
-                  <button className='bg-blue-500 text-[#fff] text-sm leading-[22px] py-2 px-4 rounded'>
+                  <button
+                    className='bg-blue-500 text-[#fff] text-sm leading-[22px] py-2 px-4 rounded'
+                    type='submit'
+                  >
                     保存
                   </button>
                 </div>
