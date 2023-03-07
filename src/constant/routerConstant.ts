@@ -35,8 +35,8 @@ export const routerConstant = {
   home: "/",
   login: "/login",
   myticket:{
-    index:"/myticket",
-    qr:"/myticket/qr"
+    index:"/my-ticket",
+    qr:"/my-ticket/qr"
   },
   event:{
     index:'event',

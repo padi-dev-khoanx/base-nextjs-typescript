@@ -2,7 +2,7 @@ import { routerConstant } from "@/src/constant/routerConstant";
 import Link from "next/link";
 import React from "react";
 
-const MypageView = () => {
+const MyPageView = () => {
   return (
     <div>
         <div>
@@ -24,4 +24,4 @@ const MypageView = () => {
   );
 };
 
-export default MypageView;
+export default MyPageView;
