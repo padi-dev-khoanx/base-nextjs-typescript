@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie';
+import { JWT } from '../constant/constant';
 
 interface dataCookie {
   access_token?: string;
@@ -7,6 +8,6 @@ interface dataCookie {
 export const addCookie = (data: dataCookie) => {
   const cookies = new Cookies();
   if (data?.access_token) {
-    cookies.set('jwt', data?.access_token, { path: '/' });
+    cookies.set(JWT, data?.access_token, { path: '/' });
   }
 };

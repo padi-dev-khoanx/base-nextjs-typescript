@@ -3,7 +3,7 @@ import { LayoutSeller } from '@/src/components/layouts/LayoutSeller';
 import { useSetRecoilState } from 'recoil';
 import { currentMenuItemState } from '@/src/recoil/seller-sidebar.recoil';
 import { useEffect } from 'react';
-import { SellerDashboardView } from '@/src/components/seller/dashboard/SellerDashboardView';
+import { SellerDashboardView } from '@/src/view/dashboard/SellerDashboardView';
 
 const DashboardArtist: NextPage = () => {
   const setCurrentMenuItem = useSetRecoilState(currentMenuItemState);
