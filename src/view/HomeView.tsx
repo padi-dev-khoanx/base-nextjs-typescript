@@ -1,28 +1,16 @@
-import { KeyboardEvent, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import AreaTag from '../components/seller/input/AreaTag';
+import Link from "next/link";
+import { routerConstant } from "../constant/routerConstant";
 
 const HomeView = ({ data }: any) => {
-  const [listTagState, setListTagState] = useState<{ name: string }[]>([]);
-  const { control, getValues, setValue } = useForm({
-    defaultValues: {
-      test: '',
-    },
-  });
-  useEffect(() => {
-    console.log('listTagState:::', listTagState);
-  }, [listTagState]);
   return (
     <div>
-      <AreaTag
-        name='test'
-        control={control}
-        listTagState={listTagState}
-        setListTagState={setListTagState}
-        setValue={setValue}
-        getValues={getValues}
-      />
+        <Link href={routerConstant.event.index}
+        >
+          <div>
+            Event Archive
+          </div>
+          </Link>
+      
     </div>
   );
 };
