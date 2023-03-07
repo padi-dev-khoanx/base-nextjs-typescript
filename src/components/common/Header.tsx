@@ -17,7 +17,9 @@ const Header = () => {
           </Link>
         </div>
         <div className="w-3/4 text-right">
-          <button className="bg-[#1890FF] rounded-sm px-2 text-sm leading-[22px] font-normal text-white mx-2">ログイン</button>
+          <Link href={routerConstant.myticket.index}>
+            <button className="bg-[#1890FF] rounded-sm px-2 text-sm leading-[22px] font-normal text-white mx-2">ログイン</button>
+          </Link>
           <button className="border border-neutral-300 rounded-sm px-2 text-sm leading-[22px] font-normal text-black mx-2">新規登録</button>
         </div>
         <div>

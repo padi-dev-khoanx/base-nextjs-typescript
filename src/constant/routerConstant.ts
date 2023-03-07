@@ -34,6 +34,10 @@ export const routerConstant = {
   error500: "/500",
   home: "/",
   login: "/login",
+  myticket:{
+    index:"/myticket",
+    qr:"/myticket/qr"
+  },
   event:{
     index:'event',
     detail:(event_id:number) =>`/event/${event_id}`,
@@ -42,7 +46,8 @@ export const routerConstant = {
       check:(event_id:number,ticket_id:number) => `/event/${event_id}/ticket/${ticket_id}/ticket-check`,
       success:(event_id:number,ticket_id:number) => `/event/${event_id}/ticket/${ticket_id}/ticket-success`
     }
-  }
+  },
+  
 };
 
 export const routerPrivate: Array<string> = [];
