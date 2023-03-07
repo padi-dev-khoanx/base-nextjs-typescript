@@ -34,7 +34,16 @@ const InviteUserView = () => {
           isRequired={true}
           type='text'
           placeholder='example'
-          rules={{ required: { value: true, message: 'email is required' } }}
+          rules={{
+            required: { value: true, message: 'email is required' },
+            validate: (value) => {
+              return (
+                [
+                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                ].every((pattern) => pattern.test(value)) || 'must is email'
+              );
+            },
+          }}
           message={errors && errors.email && errors.email.message}
         />
         <div className='mt-[34px]'>
