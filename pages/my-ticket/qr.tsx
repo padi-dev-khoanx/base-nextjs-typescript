@@ -1,13 +1,13 @@
 import LayoutDocument from '@/src/components/layouts/LayoutDocument';
-import MypageView from '@/src/view/myticket/MypageView';
+import MyPageView from '@/src/view/myticket/MyPageView';
 import React from 'react';
 
-const MyPage = () => {
+const MyPageQr = () => {
   return (
     <LayoutDocument title='My Page QR'>
-      <MypageView />
+      <MyPageView />
     </LayoutDocument>
   );
 };
 
-export default MyPage;
+export default MyPageQr;
