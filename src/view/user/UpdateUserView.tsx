@@ -17,6 +17,7 @@ const UpdateUserView = () => {
     formState: { errors },
     control,
     handleSubmit,
+    register,
   } = useForm<UpdateUser>({
     defaultValues: {
       email: '',
@@ -39,7 +40,16 @@ const UpdateUserView = () => {
           placeholder='example'
           label='メールアドレス'
           isRequired={true}
-          rules={{ required: { value: true, message: 'email is required' } }}
+          rules={{
+            required: { value: true, message: 'email is required' },
+            validate: (value) => {
+              return (
+                [
+                  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                ].every((pattern) => pattern.test(value)) || 'must is email'
+              );
+            },
+          }}
           message={errors && errors.email && errors.email.message}
         />
         <div className='mt-[34px]'>
@@ -49,12 +59,12 @@ const UpdateUserView = () => {
               <input
                 className='w-[18px] h-[18px] cursor-pointer'
                 type='radio'
-                id='1'
-                name='pay'
-                value='1'
+                id='owner'
+                value='owner'
+                {...register('authority', { required: true })}
               />
               <label
-                htmlFor='1'
+                htmlFor='owner'
                 className='font-normal text-sm leading-[22px] ml-[8px] cursor-pointer'
               >
                 オーナー
@@ -64,24 +74,28 @@ const UpdateUserView = () => {
               <input
                 className='w-[18px] h-[18px] cursor-pointer'
                 type='radio'
-                id='2'
-                name='pay'
-                value='1'
+                id='member'
+                value='member'
+                {...register('authority', { required: true })}
               />
               <label
-                htmlFor='2'
+                htmlFor='member'
                 className='font-normal text-sm leading-[22px] ml-[8px] cursor-pointer'
               >
                 メンバー
               </label>
             </div>
           </div>
+          <span className='text-xs text-red-400 mt-1'>
+            {errors.authority?.type === 'required' && 'required'}
+          </span>
+
           <div className='mt-[34px] mb-[10px]'>
             <p>オーナー：すべての権限が付与されます。</p>
             <p>メンバー：ダッシュボードへのアクセスはできません。</p>
           </div>
         </div>
-        <Button type='submit' text='保存' />
+        <Button text='保存' />
       </form>
     </div>
   );
