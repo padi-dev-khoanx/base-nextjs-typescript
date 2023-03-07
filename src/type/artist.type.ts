@@ -44,6 +44,7 @@ export interface ParamsCreateGroup {
   main_images: Array<string>;
   url: string;
   description: string;
+  member: string;
 }
 
 export interface ParamsUpdateGroup {
@@ -53,59 +54,5 @@ export interface ParamsUpdateGroup {
   logo: string;
   main_images: Array<string>;
   description: string;
+  member: string;
 }
-
-export interface ParamsUpdateStatusGroup {
-  status: string;
-  group_id: number;
-}
-
-export interface ParamsCreateMember {
-  name: string;
-  url: string;
-  group_id: number;
-  profile_image: Array<string>;
-  profile_description: number;
-}
-
-export interface ParamsUpdateMember {
-  id: number;
-  name: string;
-  group_id: number;
-  profile_image: string;
-  profile_description: string;
-}
-
-export interface ParamsCreatePack {
-  name: string;
-  group_id: number;
-  image: string;
-  description: string;
-  price_eth: number;
-  price_jpy: number;
-  amount: number;
-  start_datetime: string;
-  end_datetime: string | null;
-  number_card: number;
-  number_pack_bought: number;
-  series_id: Array<number>;
-  max_can_buy: number;
-}
-
-
-export interface ParamsUpdatePack {
-    pack_id: number;
-    group_id: number;
-    name: string;
-    image: string;
-    price_jpy: number;
-    price_eth: number;
-    amount: number;
-    max_can_buy: number;
-    start_datetime: string;
-    end_datetime: string | null;
-    number_card: number;
-    number_pack_bought: number;
-    series_id: Array<number>;
-    description: string;
-  }
