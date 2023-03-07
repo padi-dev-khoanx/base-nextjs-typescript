@@ -7,7 +7,7 @@ import { IFormLogin } from '../type/login.type';
 import { routerConstant } from '../constant/routerConstant';
 import { useMutationLogin } from '../api/login.api';
 
-const Login = () => {
+const LoginView = () => {
   const router = useRouter();
   const { mutateAsync, isLoading } = useMutationLogin();
   const {
@@ -58,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginView;
