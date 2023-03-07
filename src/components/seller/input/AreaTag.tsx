@@ -49,7 +49,7 @@ const AreaTag = ({
         control={control}
         rules={rules}
         render={({ field: { onChange, value } }) => (
-          <div className='border border-gray-300 rounded p-1'>
+          <div className='border border-gray-300 rounded-md p-1'>
             {listTagState.length ? (
               <ul className='flex flex-wrap'>
                 {listTagState.map((item) => (
