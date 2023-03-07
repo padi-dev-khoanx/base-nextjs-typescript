@@ -1,7 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { verifyJwt } from './src/utils/verifyJwt';
-import { isRouterPrivate, isRouterSeller, routerConstant } from '@/src/constant/routerConstant';
+import { isRouterSeller, routerConstant } from '@/src/constant/routerConstant';
 import { isSeller } from '@/src/utils/checkRoleUser';
+import { NextRequest, NextResponse } from 'next/server';
 import { JWT } from './src/constant/constant';
 
 export const middleware = (request: NextRequest) => {
@@ -10,17 +9,13 @@ export const middleware = (request: NextRequest) => {
   const pathName = request.nextUrl.pathname;
   const search = request.nextUrl.search;
 
-  if (isRouterPrivate(pathName) && !verifyJwt(jwt)) {
-    return NextResponse.redirect(
-      new URL(
-        routerConstant.login + `?pre_path=${encodeURIComponent(pathName + search)}`,
-        request.url,
-      ),
-    );
-  }
-
   if (isRouterSeller(pathName) && !isSeller(role)) {
-    // return NextResponse.redirect(new URL(routerConstant.error404, request.url));
+    // return NextResponse.redirect(
+    //   new URL(
+    //     routerConstant.login + `?pre_path=${encodeURIComponent(pathName + search)}`,
+    //     request.url,
+    //   ),
+    // );
   }
 
   return NextResponse.next();

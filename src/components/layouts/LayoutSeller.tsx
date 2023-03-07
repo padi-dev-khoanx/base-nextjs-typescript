@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
 import Head from 'next/head';
+import { ReactNode } from 'react';
 import SellerSidebar from '../seller/common/SellerSidebar';
 
 type Props = {

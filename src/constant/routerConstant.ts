@@ -48,7 +48,7 @@ export const routerConstant = {
 export const routerPrivate: Array<string> = [];
 
 export const isRouterSeller = (pathName: string): boolean => {
-  return pathName.startsWith("/seller");
+  return pathName.startsWith("/seller") || pathName.startsWith("/purchase")
 };
 
 export const isRouterPrivate = (pathName: string): boolean => {

@@ -6,6 +6,7 @@ import InputSeller from '@/src/components/seller/input/InputSeller';
 import InputUrlSeller from '@/src/components/seller/input/InputUrlSeller';
 import TextAreaSeller from '@/src/components/seller/input/TextAreaSeller';
 import { UploadImage } from '@/src/components/upload/UploadImage';
+import { messageValdiate } from '@/src/constant/messageValidate';
 import { ParamsUpdateGroup } from '@/src/type/artist.type';
 import { ErrorMessage } from '@hookform/error-message';
 import { UploadProps } from 'antd';
@@ -57,10 +58,10 @@ export const UpdateArtistView = () => {
 
   useEffect(() => {
     register('logo', {
-      required: 'Please fill out this field',
+      required: messageValdiate.required,
     });
     register('main_images', {
-      required: 'Please fill out this field',
+      required: messageValdiate.required,
     });
   }, [register]);
 
@@ -83,7 +84,7 @@ export const UpdateArtistView = () => {
                     message={errors && errors.name && errors.name.message}
                     label='グループ名'
                     isRequired={true}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
+                    rules={{ required: { value: true, message: messageValdiate.required } }}
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
@@ -98,7 +99,7 @@ export const UpdateArtistView = () => {
                     setListTagState={setListMember}
                     setValue={setValue}
                     getValues={getValues}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
+                    rules={{ required: { value: true, message: messageValdiate.required } }}
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
@@ -165,7 +166,7 @@ export const UpdateArtistView = () => {
                       message={errors && errors.main_images && errors.main_images.message}
                       label='URL'
                       isRequired={true}
-                      rules={{ required: { value: true, message: 'This field is required' } }}
+                      rules={{ required: { value: true, message: messageValdiate.required } }}
                     />
                     <div className='text-black/[0.45] text-sm leading-[22px] pt-[9px]'>
                       <p>半角英数字またはハイフン(-)3文字以上</p>
@@ -182,7 +183,7 @@ export const UpdateArtistView = () => {
                     label='説明文'
                     rows={4}
                     isRequired={true}
-                    rules={{ required: { value: true, message: 'This field is required' } }}
+                    rules={{ required: { value: true, message: messageValdiate.required } }}
                   />
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>

@@ -4,6 +4,7 @@ import { handleResultApi } from "@/src/utils/handleResultApi";
 import "@/styles/globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
+import { Router } from "next/router";
 import { useState } from "react";
 import { toast, ToastContainer, ToastOptions } from "react-toastify";
 import { RecoilRoot } from "recoil";

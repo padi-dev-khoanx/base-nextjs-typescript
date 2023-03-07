@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 
 export default function Loading() {
   const loading = useRecoilValue(loadingState);
-
   return (
     <>
       {loading && (

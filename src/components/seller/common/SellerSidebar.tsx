@@ -13,8 +13,6 @@ const SellerSidebar = () => {
   useEffect(() => {
     setIsActiveState(router.asPath);
   }, [router]);
-  console.log('router', router);
-  console.log('isActiveState', isActiveState);
   return (
     <div className='bg-[#FAFAFA] w-[280px] fixed left-0 h-full'>
       <div className='pt-10 px-4'>
