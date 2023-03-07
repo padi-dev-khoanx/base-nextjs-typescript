@@ -1,8 +1,11 @@
+import {
+  isRouterPrivate,
+  isRouterSeller, routerConstant
+} from '@/src/constant/routerConstant';
+import { isSeller, isUser } from '@/src/utils/checkRoleUser';
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyJwt } from './src/utils/verifyJwt';
-import { isRouterPrivate, isRouterSeller, routerConstant } from '@/src/constant/routerConstant';
-import { isSeller } from '@/src/utils/checkRoleUser';
 import { JWT } from './src/constant/constant';
+import { verifyJwt } from './src/utils/verifyJwt';
 
 export const middleware = (request: NextRequest) => {
   const jwt = String(request.cookies.get(JWT));
@@ -22,7 +25,6 @@ export const middleware = (request: NextRequest) => {
   if (isRouterSeller(pathName) && !isSeller(role)) {
     // return NextResponse.redirect(new URL(routerConstant.error404, request.url));
   }
-
   return NextResponse.next();
 };
 

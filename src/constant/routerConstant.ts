@@ -36,7 +36,9 @@ export const routerConstant = {
   login: "/login",
 };
 
-export const routerPrivate: Array<string> = [];
+export const routerPrivate: Array<string> = [
+  routerConstant.home
+];
 
 export const isRouterSeller = (pathName: string): boolean => {
   return pathName.startsWith("/seller");
@@ -45,7 +47,7 @@ export const isRouterSeller = (pathName: string): boolean => {
 export const isRouterPrivate = (pathName: string): boolean => {
   return (
     routerPrivate.includes(pathName) ||
-    pathName.startsWith("/@/") ||
+    pathName.startsWith("/seller") ||
     pathName.startsWith("/purchase")
   );
 };
