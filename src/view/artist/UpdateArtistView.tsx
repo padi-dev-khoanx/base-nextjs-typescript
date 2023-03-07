@@ -1,13 +1,10 @@
 // import { SellerInput } from "@/src/components/common/SellerInput";
 // import { SellerTextArea } from "@/src/components/common/SellerTextArea";
 import { SellerHeaderUpdateCreate } from '@/src/components/seller/common/SellerHeaderUpdateCreate';
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
 import AreaTag from '@/src/components/seller/input/AreaTag';
 import InputSeller from '@/src/components/seller/input/InputSeller';
 import InputUrlSeller from '@/src/components/seller/input/InputUrlSeller';
 import TextAreaSeller from '@/src/components/seller/input/TextAreaSeller';
-=======
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
 import { UploadImage } from '@/src/components/upload/UploadImage';
 import { ParamsUpdateGroup } from '@/src/type/artist.type';
 import { ErrorMessage } from '@hookform/error-message';
@@ -73,25 +70,11 @@ export const UpdateArtistView = () => {
     <>
       <div className='flex'>
         <div className='w-full'>
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
           <SellerHeaderUpdateCreate title='新しいグループ' showButtonRight={true} />
-=======
-          <SellerHeaderUpdateCreate
-            title={groupData?.name}
-            conditionButtonRight={groupData?.status === 'active' || groupData?.status === 'locked'}
-            showButtonRight={
-              groupData?.status === 'active' ||
-              groupData?.status === 'locked' ||
-              groupData?.status === 'inactive'
-            }
-            actionButtonRight={() => handleChangeStatusGroup()}
-          />
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
           <div>
             <div className='p-[34px]'>
               <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
                   <InputSeller
                     type='text'
                     placeholder='グループ名'
@@ -118,22 +101,6 @@ export const UpdateArtistView = () => {
                     rules={{ required: { value: true, message: 'This field is required' } }}
                   />
                 </div>
-=======
-                  <label className='block  tracking-wide font-normal pb-[8px]'>
-                    <span className='text-[#FF4D4F]'>*</span>
-                    <span className='text-sm leading-[22px]'>グループ名</span>
-                  </label>
-                  {/* <SellerInput
-                    type="text"
-                    placeholder="グループ名"
-                    {...register("name", {
-                      required: "Please fill out this field",
-                    })}
-                    name="name"
-                    errors={errors}
-                  /> */}
-                </div>
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
                   <label className='block  tracking-wide font-normal pb-[8px]'>
                     <span className='text-[#FF4D4F]'>*</span>
@@ -158,11 +125,7 @@ export const UpdateArtistView = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[17px]'>
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
                   <label className='block tracking-wide font-normal pb-[8px]'>
-=======
-                  <label className='block  tracking-wide font-normal pb-[8px]'>
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
                     <span className='text-[#FF4D4F]'>*</span>
                     <span className='text-sm leading-[22px]'>メイン画像</span>
                   </label>
@@ -192,7 +155,6 @@ export const UpdateArtistView = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
                   <div>
                     <InputUrlSeller
                       type='text'
@@ -205,21 +167,6 @@ export const UpdateArtistView = () => {
                       isRequired={true}
                       rules={{ required: { value: true, message: 'This field is required' } }}
                     />
-=======
-                  <label className='block  tracking-wide font-normal pb-[8px]'>
-                    <span className='text-[#FF4D4F]'>*</span>
-                    <span className='text-sm leading-[22px]'>URL</span>
-                  </label>
-                  <div>
-                    <div className='flex'>
-                      <span className='inline-flex items-center py-[4px] px-[12px] text-sm leading-[22px] bg-[#FAFAFA] rounded-l-[2px] border border-[#D9D9D9] border-r-[0]'>
-                        https://idolly.app/
-                      </span>
-                      <span className='rounded-sm rounded-l-[0px] bg-[#F5F5F5] border text-[#00000040] block flex-1 w-full text-sm border-[#D9D9D9] py-[4px] px-[12px] focus:outline-none focus:bg-white'>
-                        {groupData?.url}
-                      </span>
-                    </div>
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
                     <div className='text-black/[0.45] text-sm leading-[22px] pt-[9px]'>
                       <p>半角英数字またはハイフン(-)3文字以上</p>
                       <p>URLは保存したら変更できませんのでご注意下さい</p>
@@ -227,7 +174,6 @@ export const UpdateArtistView = () => {
                   </div>
                 </div>
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
-<<<<<<< HEAD:src/view/artist/UpdateArtist.tsx
                   <TextAreaSeller
                     placeholder='Autosize height based on content lines'
                     name='description'
@@ -239,36 +185,6 @@ export const UpdateArtistView = () => {
                     rules={{ required: { value: true, message: 'This field is required' } }}
                   />
                 </div>
-=======
-                  <label className='block  tracking-wide font-normal pb-[8px]'>
-                    <span className='text-[#FF4D4F]'>*</span>
-                    <span className='text-sm leading-[22px]'>説明文</span>
-                  </label>
-                  {/* <SellerTextArea
-                    placeholder={"Autosize height based on content lines"}
-                    register={register}
-                    name={"description"}
-                    option={{
-                      required: "Please fill out this field",
-                    }}
-                    errors={errors}
-                    textLength={getValues("description")?.length}
-                  /> */}
-                </div>
-                {/* {isFetchedAfterMount &&
-                  ["active", "locked"].includes(groupData?.status) && (
-                    <div className="w-full md:w-1/2 px-3 mb-[40px]">
-                      <Switch
-                        defaultChecked={groupData?.status === "locked"}
-                        className="btn-switch"
-                        onChange={(value) => handleChangePublicGroup(value)}
-                        checkedChildren="公開"
-                        unCheckedChildren="非公開"
-                      />
-                    </div>
-                  )} */}
-
->>>>>>> 40f1c65fe9a686333e40d7f6f25ba6fc0433f462:src/view/artist/UpdateArtistView.tsx
                 <div className='w-full md:w-1/2 px-3 mb-[40px]'>
                   <button className='bg-blue-500 text-[#fff] text-sm leading-[22px] py-2 px-4 rounded'>
                     保存
