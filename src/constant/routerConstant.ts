@@ -36,7 +36,15 @@ export const routerConstant = {
   login: "/login",
   myticket:{
     index:"/my-ticket",
-    qr:"/my-ticket/qr"
+    qr:"/my-ticket/qr",
+    resell:{
+      resell:(my_ticket_id:number) => `/my-ticket/${my_ticket_id}/resell`,
+      sucess:(my_ticket_id:number) => `/my-ticket/${my_ticket_id}/resellsuccess`
+    },
+    handover:{
+      index:(my_ticket_id:number) => `/my-ticket/${my_ticket_id}/handover`
+    }
+
   },
   event:{
     index:'event',

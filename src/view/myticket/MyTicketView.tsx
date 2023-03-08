@@ -42,6 +42,22 @@ const MyTicketView = () => {
           </div>
           
         </div>
+        <div>
+          <Link href={routerConstant.myticket.handover.index(1)}>
+            <div>
+              分配
+            </div>
+          </Link>
+          
+        </div>
+        <div>
+          <Link href={routerConstant.myticket.resell.resell(1)}>
+            <div>
+              リセールする
+            </div>
+          </Link>
+          
+        </div>
       </div>
       {openModal && (
         <div
